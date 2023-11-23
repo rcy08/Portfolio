@@ -52,7 +52,7 @@ const AboutSection = () => {
                 options={TiltOptions}
                 className='w-[275px] h-[275px] sm:w-[325px] sm:h-[352px] lg:w-[400px] lg:h-[400px] mb-16'
             >
-                <Image src='/images/about-image.png' width={400} height={400} className='sm:mb-0' />
+                <Image src='/images/about-image.png' alt='my-image' width={400} height={400} className='sm:mb-0' />
             </Tilt>
             <div 
                 className='mt-4 md:mt-16 text-left flex flex-col h-full'
@@ -80,7 +80,7 @@ const AboutSection = () => {
                     whileInView='visible'
                     viewport={{ amount: 0.25 }}
                 >   
-                    I'm a final year UG student at IIT Indore with a passion for web development and competitive programming
+                    I&apos;m a final year UG student at IIT Indore with a passion for web development and competitive programming
                 </motion.p>
                 <br />
                 <br />
@@ -108,8 +108,9 @@ const AboutSection = () => {
                 > My Coding Profiles </motion.h2> 
                 
                 {
-                    profiles.map((profile) => (
+                    profiles.map((profile, index) => (
                         <motion.div 
+                            key={index}
                             className='text-white text-[12px] md:text-sm flex flex-row items-center mb-2'
                             variants={{
                                 hidden: {

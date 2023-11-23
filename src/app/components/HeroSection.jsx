@@ -73,11 +73,11 @@ const HeroSection = () => {
                     whileInView='visible'
                     viewport={{ amount: 0.25 }}
                 > 
-                        <span> Hi, I'm </span>
+                        <span> Hi, I&apos;m </span>
                         <span className='text-transparent font-bold bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'> Chinmay{" "} </span> 
                         <br />
                         <span className='text-2xl md:text-3xl'> 
-                            I'm Interested in 
+                            I&apos;m Interested in 
                         </span>
                         <br className='xl:hidden' />
                         <TypeAnimation
@@ -108,7 +108,7 @@ const HeroSection = () => {
 
                     {
                         socialLinks.map((link, index) => (
-                            <div className='mr-[20px]'>
+                            <div className='mr-[20px]' key={index} >
                                 <SocialIcons key={index} url={link.url} icon={link.img} />
                             </div>
                         ))

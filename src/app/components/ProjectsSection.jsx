@@ -118,6 +118,7 @@ const ProjectsSection = () => {
               projectsData.map((project, index) => (
 
                 <motion.div
+                  key={index}
                   className=''
                   variants={{
                     hidden: {

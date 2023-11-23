@@ -11,7 +11,7 @@ const SocialIcons = ({ url, icon }) => {
         scale: 1.1
       }}
     >
-      <Link href={url} target='_blank' > <Image src={icon} className='w-[52px] h-[52px]' /> </Link>
+      <Link href={url} target='_blank' > <Image src={icon} alt='Social-Icon' className='w-[52px] h-[52px]' /> </Link>
     </motion.div>
   )
 }

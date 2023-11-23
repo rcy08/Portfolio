@@ -4,6 +4,7 @@ import React from 'react'
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { useInView } from "react-intersection-observer";
+import  Image  from 'next/image';
   
 import { motion } from "framer-motion";
 
@@ -47,9 +48,11 @@ const EducationCard = ({ education }) => {
                 iconStyle={{ background: education.iconBg }}
                 icon={
                     <div className='flex justify-center items-center w-full h-full bg-[#e4e4e7] rounded-[50%]'>
-                        <img
+                        <Image
                             src={education.icon}
                             alt={education.name}
+                            width={30}
+                            height={30}
                             className='w-[75%] h-[75%] object-contain'
                         />
                     </div>
