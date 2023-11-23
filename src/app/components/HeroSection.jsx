@@ -100,7 +100,7 @@ const HeroSection = () => {
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea laudantium labore assumenda nostrum mollitia minus perferendis 
                 </p> */}
                 <div className='mt-8'>
-                    <Link
+                    <a
                         href={`#about`}
                     >
                         <button className='px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white'> 
@@ -111,7 +111,7 @@ const HeroSection = () => {
                                 className='flex justify-center items-center font-semibold hover:font-bold'> About Me 
                             <div> <FaArrowDown className='ml-4'/> </div> </motion.div> 
                         </button>    
-                    </Link>
+                    </a>
                     
                     {/* <button className='px-1 py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-800 text-white  mt-3'> 
                         <span className='block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2'> Download CV </span>  

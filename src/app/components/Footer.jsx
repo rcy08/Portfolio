@@ -20,19 +20,19 @@ const quickLinks = [
     title: 'Home'
   },
   {
-    url: '#about',
+    url: 'about',
     title: 'About'
   },
   {
-    url: '#skills',
+    url: 'skills',
     title: 'Skills'
   },
   {
-    url: '#education',
+    url: 'education',
     title: 'Education'
   },
   {
-    url: '#projects',
+    url: 'projects',
     title: 'Projects'
   },
 ];
@@ -73,7 +73,7 @@ const Footer = () => {
               quickLinks.map((link, index) => (
                 <div className="mb-2 display-inline" key={index}>
 
-                  <Link href={link.url} className="hover:text-[#DC143C]">
+                  <a href={link.url === '/' ? `/` : `#${link.url}`} className="hover:text-[#DC143C]">
                     <motion.div 
                       className="flex flex-row items-center hover:font-semibold"
                       whileHover={{
@@ -83,7 +83,7 @@ const Footer = () => {
                     > 
                       <GoArrowRight className="mr-1"/> {link.title} 
                     </motion.div> 
-                  </Link>
+                  </a>
                   
                 </div>
               ))
