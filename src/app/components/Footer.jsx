@@ -105,7 +105,7 @@ const Footer = () => {
                         scale: 1.1
                       }}
                     >
-                        <Link href={link.url} target='_blank' > <Image src={link.img} alt="Social-Icon" className='w-[40px] h-[40px]' /> </Link>
+                        <Link href={`/${link.url}`} target='_blank' > <Image src={link.img} alt="Social-Icon" className='w-[40px] h-[40px]' /> </Link>
                     </motion.div>
                   ))
                 }
