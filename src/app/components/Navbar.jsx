@@ -8,23 +8,23 @@ import MenuOverlay from './MenuOverlay';
 const navLinks = [
     {
         title: "About",
-        path: "#about"
+        path: "about"
     },
     {
         title: "Skills",
-        path: "#skills"
+        path: "skills"
     },
     {
         title: "Education",
-        path: "#education"
+        path: "education"
     },
     {
         title: "Projects",
-        path: "#projects"
+        path: "projects"
     },
     {
         title: "Contact",
-        path: "#contact"
+        path: "contact"
     }
 ];
 
@@ -35,7 +35,13 @@ const Navbar = () => {
   return (
     <nav className='fixed top-0 left-0 right-0 z-20 w-full bg-[#121212] bg-opacity-100'>
         <div className='flex flex-wrap items-center justify-between mx-auto px-4 py-2'>
-            <Link href={"/"} className='ml-8 mt-3 lg:ml-28 text-lg md:text-xl text-white font-semibold'> 
+            <Link 
+                href={"/"} 
+                className='ml-8 mt-3 lg:ml-28 text-lg md:text-xl text-white font-semibold'
+                onClick={() => {
+                    window.scrollTo(0, 0);
+                }}
+            > 
                 Chinmay 
             </Link>
             <div className='mobile-menu block md:hidden'>

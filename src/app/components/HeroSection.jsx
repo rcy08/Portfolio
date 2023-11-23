@@ -101,7 +101,7 @@ const HeroSection = () => {
                 </p> */}
                 <div className='mt-8'>
                     <Link
-                        href={`/#about`}
+                        href={`#about`}
                     >
                         <button className='px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white'> 
                             <motion.div
