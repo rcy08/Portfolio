@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { TypeAnimation } from 'react-type-animation';
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.png";
-import TwitterIcon from "../../../public/twitter_icon.png";
+import TwitterIcon from "../../../public/twitter-icon.png";
 import YoutubeIcon from '../../../public/youtube-icon.png';
 import SocialIcons from './SocialIcons';
 import Programmer from '../../../public/images/Education/programmer.webp';

@@ -9,7 +9,7 @@ import { BiSolidChevronUpCircle } from "react-icons/bi";
 import SocialIcons from "./SocialIcons";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.png";
-import TwitterIcon from "../../../public/twitter_icon.png";
+import TwitterIcon from "../../../public/twitter-icon.png";
 import YoutubeIcon from '../../../public/youtube-icon.png';
 
 import { motion } from 'framer-motion';
@@ -109,7 +109,7 @@ const Footer = () => {
                         scale: 1.1
                       }}
                     >
-                        <Link href={`/${link.url}`} target='_blank' > <Image src={link.img} alt="Social-Icon" className='w-[40px] h-[40px]' /> </Link>
+                        <Link href={`${link.url}`} target='_blank' > <Image src={link.img} alt="Social-Icon" className='w-[40px] h-[40px]' /> </Link>
                     </motion.div>
                   ))
                 }
