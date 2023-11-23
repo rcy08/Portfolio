@@ -78,6 +78,7 @@ const SkillsSection = () => {
           {
             skillsData.map((skill, index) => (
               <motion.div
+                key={index}
                 variants={{
                   hidden: {
                     x: -100,
