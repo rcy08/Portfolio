@@ -35,6 +35,10 @@ const quickLinks = [
     url: 'projects',
     title: 'Projects'
   },
+  {
+    url: 'contact',
+    title: 'Contact'
+  },
 ];
 
 const socialLinks = [
