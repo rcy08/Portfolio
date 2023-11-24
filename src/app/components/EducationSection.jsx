@@ -5,6 +5,9 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 import 'react-vertical-timeline-component/style.min.css';
 import { useInView } from "react-intersection-observer";
 import  Image  from 'next/image';
+
+import IITI from '../../../public/images/Education/iiti.png'
+import SCHOOL from '../../../public/images/Education/school.png'
   
 import { motion } from "framer-motion";
 
@@ -12,7 +15,7 @@ const educations = [
     {
         title: "B.Tech",
         name: "Civil Engineering, IIT Indore",
-        icon: "/images/education/iiti.png",
+        icon: IITI,
         iconBg: "#E6DEDD",
         date: "Oct 2020 - Present",
         points: [
@@ -22,7 +25,7 @@ const educations = [
     {
         title: "Senior Secondary and Secondary School",
         name: "Satyam International School | Christ Church Diocesan School",
-        icon: "/images/education/school.png",
+        icon: SCHOOL,
         iconBg: "#383E56",
         date: "2018 - 2020",
         points: [
