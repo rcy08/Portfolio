@@ -77,29 +77,6 @@ const projectsData = [
       },
     ]
   },
-  // {
-  //   id: 4,
-  //   title: "Food Ordering Application",
-  //   description: "Project 4 description",
-  //   image: "/images/projects/4.png",
-    
-  //   gitUrl: "/",
-  //   previewUrl: "/",
-  //   tags: [
-  //     {
-  //       name: "react",
-  //       color: "font-bold text-pink-700",
-  //     },
-  //     {
-  //       name: "mongodb",
-  //       color: "font-bold text-violet-700",
-  //     },
-  //     {
-  //       name: "tailwind",
-  //       color: "font-bold text-green-700",
-  //     },
-  //   ]
-  // },
 ];
 
 const ProjectsSection = () => {

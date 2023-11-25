@@ -149,16 +149,17 @@ const EmailSection = () => {
                 placeholder=""
               />
             </div>
-            <motion.button
+            <button
               type="submit"
               className="bg-blue-500 hover:bg-blue-800 hover:--tw-shadow-color: #3730a3; text-white font-medium py-2.5 px-5 rounded-lg w-2/3 md:w-1/2 xl:w-1/3"
-              whileHover={{
-                scaleY: 1.1,
-                transition: { duration: 0.1 }
-              }}
             >
-              Send Message
-            </motion.button>
+              <motion.p 
+                whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.1 }
+              }} 
+              > Send Message </motion.p> 
+            </button>
           </form>
         )}
       </div>

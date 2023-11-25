@@ -26,4 +26,13 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+::-moz-selection {
+  background: #5800B6;
+}
+::-webkit-selection {
+  background: #5800B6;
+}
+::selection {
+  background: #5800B6;
+}
 

@@ -13,6 +13,7 @@ import Programmer from '../../../public/images/Education/programmer.webp';
 
 import { Tilt } from 'react-tilt';
 import { FaArrowDown } from "react-icons/fa6";
+import { IoArrowDownCircle } from "react-icons/io5";
 
 import { easeOut, motion, spring } from 'framer-motion';
 
@@ -109,7 +110,7 @@ const HeroSection = () => {
                                     scale: 1.05
                                 }}
                                 className='flex justify-center items-center font-semibold hover:font-bold'> About Me 
-                            <div> <FaArrowDown className='ml-4'/> </div> </motion.div> 
+                            <div> <IoArrowDownCircle className='ml-4 sm:ml-2 w-[90%] h-[75%]'/> </div> </motion.div> 
                         </button>    
                     </a>
                     
