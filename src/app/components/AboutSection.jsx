@@ -7,6 +7,8 @@ import { BiSolidChevronsRight } from "react-icons/bi";
 import { easeOut, motion } from 'framer-motion';
 import { Tilt } from 'react-tilt';
 
+import aboutImage from '../../../public/images/about-image.jpg';
+
 const TiltOptions = {
 	reverse:        false,  // reverse the tilt direction
 	max:            20,     // max tilt rotation (degrees)
@@ -52,7 +54,7 @@ const AboutSection = () => {
                 options={TiltOptions}
                 className='w-[275px] h-[275px] sm:w-[325px] sm:h-[352px] lg:w-[400px] lg:h-[400px] mb-16'
             >
-                <Image src='/images/about-image2.jpg' alt='my-image' width={400} height={400} className='sm:mb-0' />
+                <Image src={aboutImage} alt='my-image' width={400} height={400} className='sm:mb-0' />
             </Tilt>
             <div 
                 className='mt-4 md:mt-16 text-left flex flex-col h-full'
