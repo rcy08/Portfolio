@@ -22,8 +22,8 @@ const projectsData = [
   {
     id: 1,
     title: "Ticketvibe",
-    description: "An event ticketing platform for organization and booking of events with user and admin authentication service",
-    image: "/images/projects/1.png",
+    description: "An event ticketing platform for organization and booking of events with user and admin authentication service.",
+    image: "/images/projects/ticketvibe.png",
     gitUrl: "https://github.com/rcy08/Event-Ticketing-Platform",
     previewUrl: "https://ticketvibe.vercel.app",
     tags: [

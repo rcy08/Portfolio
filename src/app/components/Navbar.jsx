@@ -37,12 +37,12 @@ const Navbar = () => {
         <div className='flex flex-wrap items-center justify-between mx-auto px-4 py-2'>
             <Link 
                 href={"/"} 
-                className='ml-8 mt-3 lg:ml-28 text-lg md:text-xl text-white font-semibold'
+                className='ml-8 my-2 lg:ml-28 text-lg md:text-xl text-white font-bold'
                 onClick={() => {
                     window.scrollTo(0, 0);
                 }}
             > 
-                Chinmay 
+                <p className='head text-2xl' > Chinmay </p>  
             </Link>
             <div className='mobile-menu block md:hidden'>
                 {
@@ -77,7 +77,7 @@ const Navbar = () => {
                 </ul>
             </div>
         </div>
-        {navbarOpen ? <MenuOverlay links={navLinks} /> : null}
+        {navbarOpen ? <MenuOverlay links={navLinks} setNavbarOpen={setNavbarOpen} /> : null}
     </nav>
   )
 }

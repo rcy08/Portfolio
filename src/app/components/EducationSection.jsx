@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 const educations = [
     {
         title: "B.Tech",
-        name: "Civil Engineering, IIT Indore",
+        name: "IIT Indore",
         icon: IITI,
         iconBg: "#E6DEDD",
         date: "Oct 2020 - Present",

@@ -11,7 +11,9 @@ import EducationSection from './components/EducationSection.jsx';
 import EmailSection from './components/EmailSection.jsx';
 import Footer from './components/Footer.jsx';
 
+import { easeInOut, motion } from 'framer-motion';
 import Loader from './components/Loader';
+import { FaRegArrowAltCircleUp } from "react-icons/fa";
 
 export default function Home() {
 
@@ -32,6 +34,22 @@ export default function Home() {
       window.removeEventListener('load', handleWindowLoad);
     };
   }, []);
+
+  const [atTop, setAtTop] = useState(true);
+
+  if(!loading){
+
+
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 0){
+        if(atTop) setAtTop(!atTop);
+      }
+      else{
+        if(!atTop) setAtTop(!atTop);
+      }
+    });  
+
+  }
 
   return (
     <>
@@ -56,6 +74,35 @@ export default function Home() {
               <EmailSection/>
               <Footer/>
             </div>  
+
+            {
+
+              !atTop && 
+
+              <motion.button 
+                className='fixed bottom-8 right-16 sm:bottom-16 sm:right-24' 
+                onClick={() => window.scrollTo(0, 0)}
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                    x: 100,
+                  },
+                  show: {
+                    opacity: 1,
+                    x: 0,
+                    transition: {
+                      duration: 0.75,
+                      type: 'tween',
+                      ease: easeInOut
+                    }
+                  }
+                }}
+                initial='hidden'
+                animate='show'
+              > <FaRegArrowAltCircleUp className='w-[300%] h-[300%] rounded-full' /> </motion.button>
+  
+            }
+            
           </main>
 
         }

@@ -121,8 +121,8 @@ const SkillsSection = () => {
                     opacity: 1,
                     transition: {
                       type: "spring",
-                      duration: 0.75,
-                      delay: 0.25 * index,
+                      duration: 0.5,
+                      delay: 0.15 * index,
                       ease: easeOut
                     }
                   }

@@ -23,12 +23,12 @@ const profiles = [
     {
         url: 'https://codeforces.com/profile/rc08',
         title: 'CodeForces',
-        description: 'Pupil (max. rating: 1359)',
+        description: 'Pupil (max. rating: 1362)',
     },
     {
         url: 'https://leetcode.com/rc08',
         title: 'LeetCode',
-        description: 'Top 6% (max. rating: 1841)',
+        description: 'Top 6% (max. rating: 1890)',
     },
     {
         url: 'https://codechef.com/users/rcy08',
@@ -52,7 +52,7 @@ const AboutSection = () => {
                 options={TiltOptions}
                 className='w-[275px] h-[275px] sm:w-[325px] sm:h-[352px] lg:w-[400px] lg:h-[400px] mb-16'
             >
-                <Image src='/images/about-image.png' alt='my-image' width={400} height={400} className='sm:mb-0' />
+                <Image src='/images/about-image2.jpg' alt='my-image' width={400} height={400} className='sm:mb-0' />
             </Tilt>
             <div 
                 className='mt-4 md:mt-16 text-left flex flex-col h-full'

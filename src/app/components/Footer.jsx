@@ -115,15 +115,6 @@ const Footer = () => {
                 }
 
               </div>
-
-            <div className="absolute right-0 bottom-0">
-              <Link 
-                href='/'
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              > <BiSolidChevronUpCircle className="md:w-[33px] md:h-[33px] w-[24px] h-[24px]"/> </Link> 
-            </div>    
           </div>  
            
       </div>

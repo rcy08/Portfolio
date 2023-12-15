@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -24,6 +26,14 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.head{
+  font-family: 'Alex Brush', cursive;
+  color:#ffffff;    
+  text-shadow: 1px 0 #ffffff;
+  letter-spacing:1px;
+  font-weight:bold;
 }
 
 ::-moz-selection {
