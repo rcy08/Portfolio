@@ -5,10 +5,10 @@ import NavLink from './NavLink';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import MenuOverlay from './MenuOverlay';
 import { navLinks } from '../constants';
+import { easeInOut, motion, spring } from 'framer-motion';
 
 const Navbar = () => {
     const [navbarOpen, setNavbarOpen] = useState(false);
-
 
   return (
     <nav className='fixed top-0 left-0 right-0 z-20 w-full bg-[#121212] bg-opacity-100'>
@@ -55,7 +55,32 @@ const Navbar = () => {
                 </ul>
             </div>
         </div>
-        {navbarOpen ? <MenuOverlay links={navLinks} setNavbarOpen={setNavbarOpen} /> : null}
+        {navbarOpen ? 
+            <motion.div
+                variants={{
+                    hidden: {
+                        opacity: 0,
+                        y: -50
+                    },
+                    show: {
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                            type: spring,
+                            duration: 0.3,
+                            stiffness: 600,
+                            damping: 10,
+                            ease: easeInOut
+                        }
+                    }
+                }}
+                initial='hidden'
+                animate='show'
+            >
+                <MenuOverlay links={navLinks} setNavbarOpen={setNavbarOpen} /> 
+            </motion.div>
+            : null
+        }
     </nav>
   )
 }

@@ -11,6 +11,12 @@ import { profiles, TiltOptions, imageLoader } from '@/app/constants/index';
 
 const AboutSection = () => {
 
+    if(document.querySelector('#myImage')){
+        document.querySelector('#myImage').addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+        });    
+    }
+
   return (
     <section className='text-white sm:mb-36' id='about'>
         <h2 className='text-4xl font-bold text-white mb-4 text-center'> About Me </h2> 
@@ -26,6 +32,7 @@ const AboutSection = () => {
                     width={350} 
                     height={350} 
                     className='sm:mb-0' 
+                    id='myImage'
                 />
             </Tilt>
             <div 
