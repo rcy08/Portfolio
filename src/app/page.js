@@ -59,7 +59,7 @@ export default function Home() {
           <main className="flex min-h-screen flex-col bg-[#121212]">
             <div 
               className='min-h-[100vh]'
-              style={{ background: `url(/images/herobg.png) no-repeat center center/cover` }}
+              style={{ background: `url(/assets/images/herobg.png) no-repeat center center/cover` }}
             >
               <Navbar/>
               <div className='container mt-24 mx-auto pl-[36px] pr-[36px] md:px-12 py-4 flex'> <HeroSection/> </div>   
@@ -81,7 +81,7 @@ export default function Home() {
 
               <motion.button 
                 className='fixed bottom-8 right-16 sm:bottom-16 sm:right-24' 
-                onClick={() => window.scrollTo(0, 0)}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 variants={{
                   hidden: {
                     opacity: 0,

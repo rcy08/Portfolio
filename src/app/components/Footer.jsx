@@ -5,71 +5,23 @@ import Image from "next/image";
 import { MdEmail } from "react-icons/md";
 import { GoArrowRight } from "react-icons/go";
 import { FaLocationCrosshairs } from "react-icons/fa6";
-import { BiSolidChevronUpCircle } from "react-icons/bi";
-import SocialIcons from "./SocialIcons";
-import GithubIcon from "../../../public/github-icon.svg";
-import LinkedinIcon from "../../../public/linkedin-icon.png";
-import TwitterIcon from "../../../public/twitter-icon.png";
-import YoutubeIcon from '../../../public/youtube-icon.png';
 
 import { motion } from 'framer-motion';
-
-const quickLinks = [
-  {
-    url: '/',
-    title: 'Home'
-  },
-  {
-    url: 'about',
-    title: 'About'
-  },
-  {
-    url: 'skills',
-    title: 'Skills'
-  },
-  {
-    url: 'education',
-    title: 'Education'
-  },
-  {
-    url: 'projects',
-    title: 'Projects'
-  },
-  {
-    url: 'contact',
-    title: 'Contact'
-  },
-];
-
-const socialLinks = [
-  {
-      id: 1,
-      url: 'https://github.com/rcy08',
-      img: GithubIcon
-  },
-  {
-      id: 2,
-      url: 'https://twitter.com/_rcy08_',
-      img: TwitterIcon
-  },
-  {
-      id: 3,
-      url: 'https://linkedin.com/in/rcy08',
-      img: LinkedinIcon
-  },
-  {
-      id: 4,
-      url: 'https://www.youtube.com/@rcy08_',
-      img: YoutubeIcon
-  },
-];
+import { quickLinks, socialLinks, imageLoader } from "../constants";
 
 const Footer = () => {
   return (
     <footer className="footer border z-10 border-t-[#33353F] border-l-transparent border-r-transparent text-white">
       <div className="container p-4 md:p-8 flex md:flex-row flex-col justify-between">
 
-          <div className="text-2xl md:mb-0 mb-12"> Chinmay </div>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="h-fit w-fit"
+          >
+            <div className="text-2xl md:mb-0 mb-12"> 
+              Chinmay 
+            </div>  
+          </button>
 
           <div className="md:flex md:flex-col md:mb-0 mb-8">
             <h2 className="mb-4 text-2xl"> Quick Links </h2>
@@ -109,7 +61,15 @@ const Footer = () => {
                         scale: 1.1
                       }}
                     >
-                        <Link href={`${link.url}`} target='_blank' > <Image src={link.img} alt="Social-Icon" className='w-[40px] h-[40px]' /> </Link>
+                        <Link href={`${link.url}`} target='_blank'> 
+                          <Image 
+                            loader={imageLoader}
+                            src={link.path} 
+                            alt="Social-Icon" 
+                            width={46}
+                            height={46}
+                          /> 
+                        </Link>
                     </motion.div>
                   ))
                 }

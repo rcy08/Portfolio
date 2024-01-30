@@ -1,38 +1,12 @@
 "use client";
-import React from 'react'
+import React from 'react';
 
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { useInView } from "react-intersection-observer";
 import  Image  from 'next/image';
-
-import IITI from '../../../public/images/Education/iiti.png'
-import SCHOOL from '../../../public/images/Education/school.png'
   
-import { motion } from "framer-motion";
-
-const educations = [
-    {
-        title: "B.Tech",
-        name: "IIT Indore",
-        icon: IITI,
-        iconBg: "#E6DEDD",
-        date: "Oct 2020 - Present",
-        points: [
-          "Final Year"
-        ],
-    },
-    {
-        title: "Senior Secondary and Secondary School",
-        name: "Satyam International School | Christ Church Diocesan School",
-        icon: SCHOOL,
-        iconBg: "#383E56",
-        date: "2018 - 2020",
-        points: [
-          "Completed"
-        ],
-    },
-];
+import { educations, imageLoader } from '../constants';
 
 const EducationCard = ({ education }) => {
     const { ref, inView } = useInView({
@@ -50,38 +24,47 @@ const EducationCard = ({ education }) => {
                 date={education.date}
                 iconStyle={{ background: education.iconBg }}
                 icon={
-                    <div className='flex justify-center items-center w-full h-full bg-[#e4e4e7] rounded-[50%]'>
+                    <button 
+                        className='flex justify-center items-center w-full h-full bg-[#e4e4e7] rounded-[50%]'
+                        onClick={() => window.open(education.url, '_blank')}
+                    >
                         <Image
+                            loader={imageLoader}
                             src={education.icon}
                             alt={education.name}
                             width={30}
                             height={30}
                             className='w-[75%] h-[75%] object-contain'
                         />
-                    </div>
+                    </button>
                 }
                 visible={inView}
             >
-            <div>
-                <h3 className='text-white text-[24px] font-bold mb-4'>{education.title}</h3>
-                <p
-                    className='text-secondary text-[16px] font-semibold'
-                    style={{ margin: 0 }}
-                >
-                    {education.name}
-                </p>
-            </div>
+            <button 
+                onClick={() => window.open(education.url, '_blank')}
+                className='w-full h-full text-left'
+            >
+                <div>
+                    <h3 className='text-white text-[24px] font-bold mb-4'>{education.title}</h3>
+                    <p
+                        className='text-secondary text-[16px] font-semibold'
+                        style={{ margin: 0 }}
+                    >
+                        {education.name}
+                    </p>
+                </div>
 
-            <ul className='mt-5 list-disc ml-5 space-y-2'>
-                {education.points.map((point, index) => (
-                <li
-                    key={`education-point-${index}`}
-                    className='text-white-100 text-[14px] pl-1 tracking-wider'
-                >
-                    {point}
-                </li>
-                ))}
-            </ul>
+                <ul className='mt-5 list-disc ml-5 space-y-2'>
+                    {education.points.map((point, index) => (
+                    <li
+                        key={`education-point-${index}`}
+                        className='text-white-100 text-[14px] pl-1 tracking-wider'
+                    >
+                        {point}
+                    </li>
+                    ))}
+                </ul>    
+            </button>
             </VerticalTimelineElement>    
         </div>
         
@@ -107,4 +90,4 @@ const EducationSection = () => {
   )
 }
 
-export default EducationSection
+export default EducationSection;

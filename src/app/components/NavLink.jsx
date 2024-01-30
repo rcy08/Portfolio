@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import React from 'react'
+import Link from 'next/link';
+import React from 'react';
 
 const NavLink = ({ href, title, setNavbarOpen }) => {
   return (
@@ -13,4 +13,4 @@ const NavLink = ({ href, title, setNavbarOpen }) => {
   )
 }
 
-export default NavLink
+export default NavLink;

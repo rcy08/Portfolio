@@ -1,11 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import GithubIcon from "../../../public/github-icon.svg";
-import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
 
 import { motion, easeOut } from 'framer-motion';
+import { imageLoader } from "../constants";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -82,7 +81,13 @@ const EmailSection = () => {
             }}
           >
             <Link href="https://github.com/rcy08" target="_blank">
-              <Image src={GithubIcon} alt="Github Icon" />
+              <Image 
+                loader={imageLoader}
+                src={'assets/icons/github-icon.svg'} 
+                alt="Github Icon" 
+                width={40}
+                height={40}
+              />
             </Link>  
           </motion.div>
           <motion.div
@@ -91,7 +96,13 @@ const EmailSection = () => {
             }}
           >
             <Link href="https://linkedin.com/in/rcy08" target="_blank">
-              <Image src={LinkedinIcon} alt="Linkedin Icon" />
+              <Image 
+                loader={imageLoader}
+                src={'assets/icons/linkedin-icon.svg'} 
+                alt="Linkedin Icon" 
+                width={40}
+                height={40}
+              />
             </Link>  
           </motion.div>
         </div>

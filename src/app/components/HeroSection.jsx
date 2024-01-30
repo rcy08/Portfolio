@@ -4,12 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { TypeAnimation } from 'react-type-animation';
-import GithubIcon from "../../../public/github-icon.svg";
-import LinkedinIcon from "../../../public/linkedin-icon.png";
-import TwitterIcon from "../../../public/twitter-icon.png";
-import YoutubeIcon from '../../../public/youtube-icon.png';
 import SocialIcons from './SocialIcons';
-import Programmer from '../../../public/images/Education/programmer.webp';
 
 import { Tilt } from 'react-tilt';
 import { FaArrowDown } from "react-icons/fa6";
@@ -17,36 +12,7 @@ import { IoArrowDownCircle } from "react-icons/io5";
 
 import { easeOut, motion, spring } from 'framer-motion';
 
-const TiltOptions = {
-	reverse:        false,  // reverse the tilt direction
-	max:            20,     // max tilt rotation (degrees)
-	perspective:    1000,   // Transform perspective, the lower the more extreme the tilt gets.
-	scale:          1.05,    // 2 = 200%, 1.5 = 150%, etc..
-	speed:          1000,   // Speed of the enter/exit transition
-	transition:     true,   // Set a transition on enter/exit.
-	axis:           null,   // What axis should be disabled. Can be X or Y.
-	reset:          true,    // If the tilt effect has to be reset on exit.
-	easing:         "cubic-bezier(.03,.98,.52,.99)",    // Easing on enter/exit.
-}
-
-const socialLinks = [
-    {
-        url: 'https://github.com/rcy08',
-        img: GithubIcon
-    },
-    {
-        url: 'https://linkedin.com/in/rcy08',
-        img: LinkedinIcon
-    },
-    {
-        url: 'https://twitter.com/_rcy08_',
-        img: TwitterIcon
-    },
-    {
-        url: 'https://www.youtube.com/@rcy08_',
-        img: YoutubeIcon
-    },
-];
+import { TiltOptions, socialLinks, imageLoader } from '../constants';
 
 const HeroSection = () => {
   return (
@@ -121,9 +87,9 @@ const HeroSection = () => {
                 <div className='mt-12 flex flex-row justify-center md:justify-start mb-16 sm:mb-0'>
 
                     {
-                        socialLinks.map((link, index) => (
-                            <div className='mr-[20px]' key={index} >
-                                <SocialIcons key={index} url={link.url} icon={link.img} />
+                        socialLinks.map((link) => (
+                            <div className='mr-[20px]' key={link.id} >
+                                <SocialIcons url={link.url} icon={link.path} />
                             </div>
                         ))
                     }
@@ -136,7 +102,8 @@ const HeroSection = () => {
                         className='rounded-full w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px] relative'
                     >
                         <Image
-                            src={Programmer}
+                            loader={imageLoader}
+                            src={'assets/images/education/programmer.webp'}
                             alt='hero image'
                             className='w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px]  rounded-full absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
                             width={300}

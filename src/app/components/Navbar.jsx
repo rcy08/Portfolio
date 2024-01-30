@@ -4,29 +4,7 @@ import React, { useState } from 'react';
 import NavLink from './NavLink';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import MenuOverlay from './MenuOverlay';
-
-const navLinks = [
-    {
-        title: "About",
-        path: "about"
-    },
-    {
-        title: "Skills",
-        path: "skills"
-    },
-    {
-        title: "Education",
-        path: "education"
-    },
-    {
-        title: "Projects",
-        path: "projects"
-    },
-    {
-        title: "Contact",
-        path: "contact"
-    }
-];
+import { navLinks } from '../constants';
 
 const Navbar = () => {
     const [navbarOpen, setNavbarOpen] = useState(false);
@@ -39,7 +17,7 @@ const Navbar = () => {
                 href={"/"} 
                 className='ml-8 my-2 lg:ml-28 text-lg md:text-xl text-white font-bold'
                 onClick={() => {
-                    window.scrollTo(0, 0);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
             > 
                 <p className='head text-2xl' > Chinmay </p>  
@@ -82,4 +60,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;

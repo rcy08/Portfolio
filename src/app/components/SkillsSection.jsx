@@ -3,99 +3,7 @@ import React from 'react';
 import SkillCard from './SkillCard';
 
 import { easeInOut, easeOut, motion, spring } from 'framer-motion';
-
-const skillsData = [
-  {
-    id: 1,
-    title: "C++",
-    image: "/images/skills/C++.png",
-  },
-  {
-    id: 2,
-    title: "Python",
-    image: "/images/skills/python.png",
-  },
-  {
-    id: 3,
-    title: "HTML5",
-    image: "/images/skills/html.png",
-  },
-  {
-    id: 4,
-    title: "CSS3",
-    image: "/images/skills/css.png",
-  },
-  {
-    id: 5,
-    title: "JavaScript",
-    image: "/images/skills/javascript.png",
-  },
-  {
-    id: 6,
-    title: "TypeScript",
-    image: "/images/skills/typescript.png",
-  },
-  {
-    id: 7,
-    title: "Google Cloud",
-    image: "/images/skills/gcp.png",
-  },
-  {
-    id: 8,
-    title: "Firebase",
-    image: "/images/skills/firebase.png",
-  },
-  {
-    id: 9,
-    title: "NodeJs",
-    image: "/images/skills/nodejs.png",
-  },
-  {
-    id: 10,
-    title: "ReactJs",
-    image: "/images/skills/reactjs.png",
-  },
-  {
-    id: 11,
-    title: "NextJs",
-    image: "/images/skills/nextjs.svg",
-  },
-  {
-    id: 12,
-    title: "MongoDB",
-    image: "/images/skills/mongodb.png",
-  },
-  {
-    id: 13,
-    title: "SQL",
-    image: "/images/skills/sql.png",
-  },
-  {
-    id: 14,
-    title: "TailwindCSS",
-    image: "/images/skills/tailwind.png",
-  },
-  {
-    id: 15,
-    title: "Framer",
-    image: "/images/skills/framer.png",
-  },
-  {
-    id: 16,
-    title: "ThreeJs",
-    image: "/images/skills/three.png",
-  },
-  {
-    id: 17,
-    title: "Git",
-    image: "/images/skills/git.png",
-  },
-  {
-    id: 18,
-    title: "Github",
-    image: "/images/skills/github.png",
-  },
-];
+import { skillsData } from '../constants';
 
 const SkillsSection = () => {
   return (
@@ -135,7 +43,7 @@ const SkillsSection = () => {
                 whileInView='visible'
                 viewport={{ amount: 0.25 }}
               >
-                <SkillCard key={skill.id} title={skill.title} url={skill.image} />   
+                <SkillCard key={skill.id} title={skill.title} url={skill.path} />   
               </motion.div>
             ))
           }

@@ -7,42 +7,7 @@ import { BiSolidChevronsRight } from "react-icons/bi";
 import { easeOut, motion } from 'framer-motion';
 import { Tilt } from 'react-tilt';
 
-import aboutImage from '../../../public/images/about-image.jpg';
-
-const TiltOptions = {
-	reverse:        false,  // reverse the tilt direction
-	max:            20,     // max tilt rotation (degrees)
-	perspective:    1000,   // Transform perspective, the lower the more extreme the tilt gets.
-	scale:          1.05,    // 2 = 200%, 1.5 = 150%, etc..
-	speed:          1000,   // Speed of the enter/exit transition
-	transition:     true,   // Set a transition on enter/exit.
-	axis:           null,   // What axis should be disabled. Can be X or Y.
-	reset:          true,    // If the tilt effect has to be reset on exit.
-	easing:         "cubic-bezier(.03,.98,.52,.99)",    // Easing on enter/exit.
-}
-
-const profiles = [
-    {
-        url: 'https://codeforces.com/profile/rc08',
-        title: 'CodeForces',
-        description: 'Pupil (max. rating: 1362)',
-    },
-    {
-        url: 'https://leetcode.com/rc08',
-        title: 'LeetCode',
-        description: 'Top 6% (max. rating: 1890)',
-    },
-    {
-        url: 'https://codechef.com/users/rcy08',
-        title: 'CodeChef',
-        description: '3 Stars (max. rating: 1641)',
-    },
-    {
-        url: 'https://auth.geeksforgeeks.org/user/rc08',
-        title: 'GeeksforGeeks',
-        description: 'Solved 100+ DSA problems',
-    },
-]
+import { profiles, TiltOptions, imageLoader } from '@/app/constants/index';
 
 const AboutSection = () => {
 
@@ -54,7 +19,14 @@ const AboutSection = () => {
                 options={TiltOptions}
                 className='w-[275px] h-[275px] sm:w-[325px] sm:h-[352px] lg:w-[400px] lg:h-[400px] mb-16'
             >
-                <Image src={aboutImage} alt='my-image' width={400} height={400} className='sm:mb-0' />
+                <Image 
+                    loader={imageLoader}
+                    src={'assets/images/about-image.jpg'} 
+                    alt='my-image' 
+                    width={350} 
+                    height={350} 
+                    className='sm:mb-0' 
+                />
             </Tilt>
             <div 
                 className='mt-4 md:mt-16 text-left flex flex-col h-full'
@@ -143,7 +115,7 @@ const AboutSection = () => {
                 
                 <button 
                     className='mt-8 sm:mt-12 px-6 py-3 w-full sm:w-fit rounded-xl mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white font-semibold'
-                    onClick={() => window.open('/Chinmay_Resume.pdf', '_blank')}
+                    onClick={() => window.open('/assets/Chinmay_Resume.pdf', '_blank')}
                 > 
                     Resume
                 </button>
@@ -153,4 +125,4 @@ const AboutSection = () => {
   )
 }
 
-export default AboutSection
+export default AboutSection;
