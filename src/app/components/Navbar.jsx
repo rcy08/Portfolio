@@ -1,6 +1,6 @@
 "use client";
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavLink from './NavLink';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import MenuOverlay from './MenuOverlay';
@@ -12,12 +12,13 @@ const Navbar = () => {
 
   return (
     <nav className='fixed top-0 left-0 right-0 z-20 w-full bg-[#121212] bg-opacity-100'>
+        <div className='h-[3px] w-full bg-[#121212]' />
         <div className='flex flex-wrap items-center justify-between mx-auto px-4 py-2'>
             <Link 
                 href={"/"} 
                 className='ml-8 my-2 lg:ml-28 text-lg md:text-xl text-white font-bold'
                 onClick={() => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    window.scrollTo({ top: 0, behavior: 'smooth' }); 
                 }}
             > 
                 <p className='head text-2xl' > Chinmay </p>  

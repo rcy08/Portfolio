@@ -51,12 +51,35 @@ export default function Home() {
 
   }
 
+  const [scrollPercentage, setScrollPercentage] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = window.scrollY;
+      const percentage = (scrolled / scrollHeight) * 100;
+      setScrollPercentage(percentage);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
         {
           loading ? <Loader /> :
 
+          <>
+
+          <div className='fixed top-0 left-0 h-[4px] bg-violet-700 z-30' style={{ width: `${scrollPercentage}%` }} />
+
           <main className="flex min-h-screen flex-col bg-[#121212]">
+
             <div 
               className='min-h-[100vh]'
               style={{ background: `url(/assets/images/herobg.png) no-repeat center center/cover` }}
@@ -64,7 +87,6 @@ export default function Home() {
               <Navbar/>
               <div className='container mt-24 mx-auto pl-[36px] pr-[36px] md:px-12 py-4 flex'> <HeroSection/> </div>   
             </div>
-          
           
             <div className='container mt-24 mx-auto pl-[36px] pr-[36px] md:px-12 py-4'>
               <AboutSection/>
@@ -104,6 +126,8 @@ export default function Home() {
             }
             
           </main>
+
+          </>
 
         }
   
