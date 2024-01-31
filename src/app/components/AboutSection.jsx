@@ -27,7 +27,7 @@ const AboutSection = () => {
             >
                 <Image 
                     loader={imageLoader}
-                    src={'assets/images/about-image.jpg'} 
+                    src={'assets/images/about-image.webp'} 
                     alt='my-image' 
                     width={350} 
                     height={350} 
