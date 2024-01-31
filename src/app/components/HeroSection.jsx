@@ -103,7 +103,7 @@ const HeroSection = () => {
                     >
                         <Image
                             loader={imageLoader}
-                            src={'assets/images/education/programmer.gif'}
+                            src={'assets/images/education/programmer.webp'}
                             alt='hero image'
                             className='w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px]  rounded-full absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
                             width={300}
