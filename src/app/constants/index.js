@@ -1,7 +1,9 @@
 
 export const imageLoader = ({ src, width, quality }) => {
-  return `https://rc08.vercel.app/${src}?w=${width}&q=${quality || 75}`;
+  return `https://rc08.pro/${src}?w=${width}&q=${quality || 75}`;
 };
+
+export const aboutMe = `Hi, I'm Chinmay, a final year UG student at IIT Indore with a passion for web development and competitive programming. I'm a full stack developer specializing in MERN Stack along with the latest React frameworks like Next.js 14. I'm also famiiar with cloud computing services like AWS, Firebase etc. along with containerization tools like Docker. I have good grasp over Data Structures and Algorithms with excellent problem solving skills thanks to my competitive programming journey.`;
 
 export const profiles = [
   {
@@ -209,101 +211,101 @@ export const skillsData = [
   {
     id: 1,
     title: "C++",
-    path: '/assets/images/skills/C++.webp',
+    path: 'assets/images/skills/C++.svg',
   },
   {
     id: 2,
     title: "Python",
-    path: '/assets/images/skills/python.webp',
+    path: 'assets/images/skills/python.svg',
   },
   {
     id: 3,
     title: "HTML5",
-    path: '/assets/images/skills/html.webp',
+    path: 'assets/images/skills/html.svg',
   },
   {
     id: 4,
     title: "CSS3",
-    path: '/assets/images/skills/css.webp',
+    path: 'assets/images/skills/css.svg',
   },
   {
     id: 5,
     title: "JavaScript",
-    path: '/assets/images/skills/javascript.webp',
+    path: 'assets/images/skills/javascript.svg',
   },
   {
     id: 6,
     title: "TypeScript",
-    path: '/assets/images/skills/typescript.webp',
+    path: 'assets/images/skills/typescript.svg',
   },
   {
     id: 7,
     title: "AWS",
-    path: '/assets/images/skills/aws.webp',
+    path: 'assets/images/skills/aws.svg',
   },
   {
     id: 8,
     title: "Docker",
-    path: '/assets/images/skills/docker.webp',
+    path: 'assets/images/skills/docker.svg',
   },
   {
     id: 9,
     title: "Google Cloud",
-    path: '/assets/images/skills/gcp.webp',
+    path: 'assets/images/skills/gcp.svg',
   },
   {
     id: 10,
     title: "Firebase",
-    path: '/assets/images/skills/firebase.webp',
+    path: 'assets/images/skills/firebase.svg',
   },
   {
     id: 11,
     title: "NodeJs",
-    path: '/assets/images/skills/nodejs.webp',
+    path: 'assets/images/skills/nodejs.svg',
   },
   {
     id: 12,
     title: "ReactJs",
-    path: '/assets/images/skills/reactjs.webp',
+    path: 'assets/images/skills/react.svg',
   },
   {
     id: 13,
     title: "NextJs",
-    path: '/assets/images/skills/nextjs.svg',
+    path: 'assets/images/skills/nextjs2.svg',
   },
   {
     id: 14,
     title: "MongoDB",
-    path: '/assets/images/skills/mongodb.webp',
+    path: 'assets/images/skills/mongodb.svg',
   },
   {
     id: 15,
-    title: "SQL",
-    path: '/assets/images/skills/sql.webp',
+    title: "MySQL",
+    path: 'assets/images/skills/sql.svg',
   },
   {
     id: 16,
     title: "TailwindCSS",
-    path: '/assets/images/skills/tailwind.webp',
+    path: 'assets/images/skills/tailwind.svg',
   },
   {
     id: 17,
     title: "Framer",
-    path: '/assets/images/skills/framer.webp',
+    path: 'assets/images/skills/framer.svg',
   },
   {
     id: 18,
     title: "ThreeJs",
-    path: '/assets/images/skills/three.webp',
+    path: 'assets/images/skills/three.svg',
   },
   {
     id: 19,
     title: "Git",
-    path: '/assets/images/skills/git.webp',
+    path: 'assets/images/skills/git.svg',
   },
   {
     id: 20,
     title: "Github",
-    path: '/assets/images/skills/github.webp',
+    path: 'assets/images/skills/github.webp',
   },
 ];

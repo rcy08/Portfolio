@@ -30,7 +30,7 @@ const SkillsSection = () => {
                     transition: {
                       type: "spring",
                       duration: 0.5,
-                      delay: 0.15 * index,
+                      delay: 0.25 * index,
                       ease: easeOut
                     }
                   }
@@ -40,8 +40,7 @@ const SkillsSection = () => {
                   transition: { type: "spring", stiffness: 400 }
                 }}
                 initial= 'hidden'
-                whileInView='visible'
-                viewport={{ amount: 0.25 }}
+                animate= 'visible'
               >
                 <SkillCard key={skill.id} title={skill.title} url={skill.path} />   
               </motion.div>

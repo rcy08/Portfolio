@@ -99,7 +99,7 @@ const HeroSection = () => {
             <div className='mb-16 sm:mb-0'>
                     <Tilt
                         options={TiltOptions}
-                        className='rounded-full w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px] relative'
+                        className='rounded-full w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px] relative hover:cursor-pointer hover:shadow-lg hover:shadow-gray-600'
                     >
                         <Image
                             loader={imageLoader}

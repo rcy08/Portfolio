@@ -1,17 +1,17 @@
 "use client";
 import Image from 'next/image';
 
-import { imageLoader } from 'next/image';
+import { imageLoader } from '../constants';
 
 const SkillCard = ({ title, url }) => {
   return (
-    <div className='flex flex-col justify-between items-center hover:bg-[#181434] hover:shadow-lg hover:shadow-[#413c64] rounded-xl sm:ml-0 sm:mr-0 ml-[8px] mr-[8px] h-[150px]'>
+    <div className='flex flex-col justify-between items-center hover:bg-[#181434] hover:shadow-lg hover:shadow-[#413c64] rounded-xl sm:ml-0 sm:mr-0 ml-[8px] mr-[8px]'>
       <Image 
         loader={imageLoader}
         src={url} 
         alt='Skill-Image' 
-        width={50} 
-        height={50} 
+        width={48} 
+        height={48} 
         className='mb-8 mt-4' 
       />
       <div className='text-white font-semibold mb-4'>

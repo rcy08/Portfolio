@@ -1,7 +1,6 @@
 "use client";
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import NavLink from './NavLink';
+import React, { useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import MenuOverlay from './MenuOverlay';
 import { navLinks } from '../constants';
@@ -9,9 +8,11 @@ import { easeInOut, motion, spring } from 'framer-motion';
 
 const Navbar = () => {
     const [navbarOpen, setNavbarOpen] = useState(false);
+    const [showBar, setShowBar] = useState(false);
+    const [i, setI] = useState('');
 
   return (
-    <nav className='fixed top-0 left-0 right-0 z-20 w-full bg-[#121212] bg-opacity-100'>
+    <nav className='fixed top-0 left-0 right-0 z-20 w-full bg-[#121212] bg-opacity-100 shadow-md shadow-[#0c0c0c]'>
         <div className='h-[3px] w-full bg-[#121212]' />
         <div className='flex flex-wrap items-center justify-between mx-auto px-4 py-2'>
             <Link 
@@ -49,7 +50,56 @@ const Navbar = () => {
                     {
                         navLinks.map((link, index) => (
                             <li key={index}>
-                                <NavLink href={link.path} title={link.title} />
+                                <button 
+                                    onClick={() => {
+                                        const targetElement = document.querySelector(`#${link.path}`);
+                                            if (targetElement) {
+                                            window.scrollTo({
+                                                top: targetElement.offsetTop - 70,
+                                                behavior: 'smooth',
+                                            });
+                                        }
+                                    }}
+                                    onMouseEnter={() => {setShowBar(true); setI(index)}}
+                                    onMouseLeave={() => {setShowBar(false); setI(index)}}
+                                >
+                                    <div className='w-full relative'> 
+                                        <p
+                                            className='block py-2 text-violet-700 sm:text-[#ADB7BE] sm:text-lg rounded md:p-0 hover:text-white'
+                                        >
+                                            {link.title}     
+                                        </p>
+                                        <motion.div 
+                                            className='absolute top-[30px] bg-violet-700 w-full'
+                                            variants={{
+                                                hidden: {
+                                                    opacity: 0,
+                                                    width: '25%',
+                                                    height: 2
+                                                },
+                                                show: {
+                                                    opacity: 1,
+                                                    width: '100%',
+                                                    height: 2.5,
+                                                    transition: {
+                                                        duration: 0.5
+                                                    }
+                                                },
+                                                leave: {
+                                                    opacity: 0,
+                                                    width: '25%',
+                                                    height: 2,
+                                                    transition: {
+                                                        duration: 0.5
+                                                    }
+                                                }
+                                            }}
+                                            initial='hidden'
+                                            animate={showBar && i === index ? 'show' : 'hidden'}
+                                            exit={!showBar && i === index ? 'leave' : 'show'}
+                                        > </motion.div>   
+                                    </div>
+                                </button>
                             </li>
                         ))
                     }

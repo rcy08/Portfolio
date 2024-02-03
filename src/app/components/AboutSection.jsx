@@ -7,7 +7,7 @@ import { BiSolidChevronsRight } from "react-icons/bi";
 import { easeOut, motion } from 'framer-motion';
 import { Tilt } from 'react-tilt';
 
-import { profiles, TiltOptions, imageLoader } from '@/app/constants/index';
+import { profiles, TiltOptions, imageLoader, aboutMe } from '@/app/constants/index';
 
 const AboutSection = () => {
 
@@ -40,7 +40,7 @@ const AboutSection = () => {
             >
                 
                 <motion.p
-                    className='text-base lg:text-lg'
+                    className='text-base lg:text-md'
                     variants={{
                         hidden: {
                             y: -50,
@@ -61,7 +61,9 @@ const AboutSection = () => {
                     whileInView='visible'
                     viewport={{ amount: 0.25 }}
                 >   
-                    I&apos;m a final year UG student at IIT Indore with a passion for web development and competitive programming
+                    {aboutMe}
+                    <div className='h-[20px] bg-transparent' />
+                    Feel free to reach out to me at: <Link href={`mailto:rajchinmay08@gmail.com`} target='_blank' className='text-blue-500 hover:text-blue-700 underline'> rajchinmay08@gmail.com </Link>
                 </motion.p>
                 <br />
                 <br />
