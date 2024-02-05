@@ -84,7 +84,7 @@ export default function Home() {
 
           <>
 
-          <div className={`w-full h-[100vh] ${!subdomain && 'hidden'}`}>
+          <div className={`w-full h-[100vh] ${(!subdomain || !subdomains.includes(subdomain)) && 'hidden'}`}>
             <Forbidden />
           </div>
 
