@@ -14,6 +14,7 @@ import Forbidden from './components/Forbidden';
 import { easeInOut, motion } from 'framer-motion';
 import Loader from './components/Loader';
 import { FaRegArrowAltCircleUp } from "react-icons/fa";
+import { subdomains } from './constants';
 
 export default function Home() {
 
@@ -83,13 +84,13 @@ export default function Home() {
 
           <>
 
-          <div className={`w-full h-[100vh] ${subdomain === '' && 'hidden'}`}>
+          <div className={`w-full h-[100vh] ${!subdomain && 'hidden'}`}>
             <Forbidden />
           </div>
 
-          <div className={`fixed top-0 left-0 h-[4px] bg-violet-700 z-30 ${subdomain !== '' && 'hidden'}`} style={{ width: `${scrollPercentage}%` }} />
+          <div className={`fixed top-0 left-0 h-[4px] bg-violet-700 z-30 ${subdomain && subdomains.includes(subdomain) && 'hidden'}`} style={{ width: `${scrollPercentage}%` }} />
 
-          <main className={`flex min-h-screen flex-col bg-[#121212] ${subdomain !== '' && 'hidden'}`}>
+          <main className={`flex min-h-screen flex-col bg-[#121212] ${subdomain && subdomains.includes(subdomain) && 'hidden'}`}>
 
             <div 
               className='min-h-[100vh]'
