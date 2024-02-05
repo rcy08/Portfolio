@@ -1,6 +1,5 @@
 "use client";
 
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import HeroSection from './components/HeroSection';
 import Navbar from './components/Navbar';
@@ -10,6 +9,7 @@ import SkillsSection from './components/SkillsSection.jsx';
 import EducationSection from './components/EducationSection.jsx';
 import EmailSection from './components/EmailSection.jsx';
 import Footer from './components/Footer.jsx';
+import Forbidden from './components/Forbidden';
 
 import { easeInOut, motion } from 'framer-motion';
 import Loader from './components/Loader';
@@ -38,8 +38,6 @@ export default function Home() {
   const [atTop, setAtTop] = useState(true);
 
   if(!loading){
-
-
     window.addEventListener('scroll', () => {
       if(window.scrollY > 0){
         if(atTop) setAtTop(!atTop);
@@ -48,7 +46,6 @@ export default function Home() {
         if(!atTop) setAtTop(!atTop);
       }
     });  
-
   }
 
   const [scrollPercentage, setScrollPercentage] = useState(0);
@@ -63,10 +60,20 @@ export default function Home() {
 
     window.addEventListener('scroll', handleScroll);
 
-    // Clean up the event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+  }, []);
+
+  const [subdomain, setSubdomain] = useState('');
+
+  useEffect(() => {
+    if(typeof window !== undefined){
+      const currentUrl = new URL(window.location.href);
+      if(currentUrl.hostname.includes('.')){
+        setSubdomain(currentUrl.hostname.split('.')[0]);
+      }
+    }
   }, []);
 
   return (
@@ -76,9 +83,13 @@ export default function Home() {
 
           <>
 
-          <div className='fixed top-0 left-0 h-[4px] bg-violet-700 z-30' style={{ width: `${scrollPercentage}%` }} />
+          <div className={`w-full h-[100vh] ${!subdomain && 'hidden'}`}>
+            <Forbidden />
+          </div>
 
-          <main className="flex min-h-screen flex-col bg-[#121212]">
+          <div className={`fixed top-0 left-0 h-[4px] bg-violet-700 z-30 ${subdomain && 'hidden'}`} style={{ width: `${scrollPercentage}%` }} />
+
+          <main className={`flex min-h-screen flex-col bg-[#121212] ${subdomain && 'hidden'}`}>
 
             <div 
               className='min-h-[100vh]'
