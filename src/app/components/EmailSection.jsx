@@ -83,7 +83,7 @@ const EmailSection = () => {
             <Link href="https://github.com/rcy08" target="_blank">
               <Image 
                 loader={imageLoader}
-                src={'assets/icons/github-icon.svg'} 
+                src={'static/icons/github-icon.svg'} 
                 alt="Github Icon" 
                 width={40}
                 height={40}
@@ -98,7 +98,7 @@ const EmailSection = () => {
             <Link href="https://linkedin.com/in/rcy08" target="_blank">
               <Image 
                 loader={imageLoader}
-                src={'assets/icons/linkedin-icon.svg'} 
+                src={'static/icons/linkedin-icon.svg'} 
                 alt="Linkedin Icon" 
                 width={40}
                 height={40}

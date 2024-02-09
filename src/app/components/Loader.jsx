@@ -10,7 +10,7 @@ const Loader = () => {
     >
       <Image 
         loader={imageLoader}
-        src={'assets/icons/loader.webp'}
+        src={'static/icons/loader.webp'}
         alt='Loading...'  
         width={300}
         height={300}
