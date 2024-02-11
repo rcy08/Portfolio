@@ -97,7 +97,7 @@ export default function Home() {
 
             <div 
               className='min-h-[100vh]'
-              style={{ background: `url(/static/images/herobg.webp) no-repeat center center/cover` }}
+              style={{ background: `url(https://rc08-s3.s3.ap-south-1.amazonaws.com/static/images/herobg.webp) no-repeat center center/cover` }}
             >
               <Navbar/>
               <div className='container mt-24 mx-auto pl-[36px] pr-[36px] md:px-12 py-4 flex'> <HeroSection/> </div>   

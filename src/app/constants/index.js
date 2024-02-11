@@ -1,6 +1,6 @@
 
 export const imageLoader = ({ src, width, quality }) => {
-  return `https://assets.rc08.pro/${src}?w=${width}&q=${quality || 75}`;
+  return `https://rc08-s3.s3.ap-south-1.amazonaws.com/${src}?w=${width}&q=${quality || 75}`;
 };
 
 export const aboutMe = `Hi, I'm Chinmay, a final year UG student at IIT Indore with a passion for web development and competitive programming. I'm a full stack developer specializing in MERN Stack along with the latest React frameworks like Next.js 14. I'm also famiiar with cloud computing services like AWS, Firebase etc. along with containerization tools like Docker. I have good grasp over Data Structures and Algorithms with excellent problem solving skills thanks to my competitive programming journey.`;
@@ -215,7 +215,7 @@ export const skillsData = [
   {
     id: 1,
     title: "C++",
-    path: 'static/images/skills/C++.svg',
+    path: 'static/images/skills/C%2B%2B.svg',
   },
   {
     id: 2,
