@@ -29,7 +29,25 @@ const Footer = () => {
               quickLinks.map((link, index) => (
                 <div className="mb-2 display-inline" key={index}>
 
-                  <a href={link.url === '/' ? `/` : `#${link.url}`} className="hover:text-[#DC143C]">
+                  <button
+                    onClick={() => {
+                      if(link.url === '/'){
+                        window.scrollTo({
+                          top: 0,
+                          behavior: 'smooth',
+                        });
+                      }
+                      else{
+                        const targetElement = document.querySelector(`#${link.url}`);
+                        if (targetElement) {
+                          window.scrollTo({
+                              top: targetElement.offsetTop - 70,
+                              behavior: 'smooth',
+                          });
+                        }
+                      }
+                    }}
+                  >
                     <motion.div 
                       className="flex flex-row items-center hover:font-semibold"
                       whileHover={{
@@ -39,7 +57,11 @@ const Footer = () => {
                     > 
                       <GoArrowRight className="mr-1"/> {link.title} 
                     </motion.div> 
-                  </a>
+                  </button>
+
+                  {/* <a href={link.url === '/' ? `/` : `#${link.url}`} className="hover:text-[#DC143C]">
+                    
+                  </a> */}
                   
                 </div>
               ))

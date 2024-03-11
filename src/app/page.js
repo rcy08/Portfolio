@@ -70,7 +70,7 @@ export default function Home() {
 
   useEffect(() => {
     if(typeof window !== undefined){
-      if(window.location.href === ('https://rc08.pro' || 'https://rc08.pro/')){
+      if(window.location.href === 'https://rc08.pro' || window.location.href === 'https://rc08.pro/'){
         window.location.href = 'https://www.rc08.pro';
       }
       const currentUrl = new URL(window.location.href);

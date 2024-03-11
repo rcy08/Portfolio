@@ -6,14 +6,14 @@ export const imageLoader = ({ src, width, quality }) => {
 export const aboutMe = `Hi, I'm Chinmay, a final year UG student at IIT Indore with a passion for web development and competitive programming. I'm a full stack developer specializing in MERN Stack along with the latest React frameworks like Next.js 14. I'm also famiiar with cloud computing services like AWS, Firebase etc. along with containerization tools like Docker. I have good grasp over Data Structures and Algorithms with excellent problem solving skills thanks to my competitive programming journey.`;
 
 export const subdomains = [
-  'assets'
+  'cdn'
 ];
 
 export const profiles = [
   {
       url: 'https://codeforces.com/profile/rc08',
       title: 'CodeForces',
-      description: 'Specialist (max. rating: 1557)',
+      description: 'Expert (max. rating: 1715)',
   },
   {
       url: 'https://leetcode.com/rc08',

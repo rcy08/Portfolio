@@ -15,15 +15,14 @@ const Navbar = () => {
     <nav className='fixed top-0 left-0 right-0 z-20 w-full bg-[#121212] bg-opacity-100 shadow-md shadow-[#0c0c0c]'>
         <div className='h-[3px] w-full bg-[#121212]' />
         <div className='flex flex-wrap items-center justify-between mx-auto px-4 py-2'>
-            <Link 
-                href={"/"} 
+            <button 
                 className='ml-8 my-2 lg:ml-28 text-lg md:text-xl text-white font-bold'
                 onClick={() => {
                     window.scrollTo({ top: 0, behavior: 'smooth' }); 
                 }}
             > 
                 <p className='head text-2xl' > Chinmay </p>  
-            </Link>
+            </button>
             <div className='mobile-menu block md:hidden'>
                 {
                     !navbarOpen ? (

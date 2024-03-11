@@ -67,8 +67,16 @@ const HeroSection = () => {
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea laudantium labore assumenda nostrum mollitia minus perferendis 
                 </p> */}
                 <div className='mt-8'>
-                    <a
-                        href={`#about`}
+                    <button
+                        onClick={() => {
+                            const targetElement = document.querySelector(`#about`);
+                                if (targetElement) {
+                                window.scrollTo({
+                                    top: targetElement.offsetTop - 70,
+                                    behavior: 'smooth',
+                                });
+                            }
+                        }}
                     >
                         <button className='px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white'> 
                             <motion.div
@@ -78,7 +86,7 @@ const HeroSection = () => {
                                 className='flex justify-center items-center font-semibold hover:font-bold'> About Me 
                             <div> <IoArrowDownCircle className='ml-4 sm:ml-2 w-[90%] h-[75%]'/> </div> </motion.div> 
                         </button>    
-                    </a>
+                    </button>
                     
                     {/* <button className='px-1 py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-800 text-white  mt-3'> 
                         <span className='block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2'> Download CV </span>  
