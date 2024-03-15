@@ -9,7 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
     "@heroicons/react": "^2.0.18",
+    "@mui/icons-material": "^5.15.13",
+    "@mui/material": "^5.15.13",
     "@vercel/speed-insights": "^1.0.9",
     "framer-motion": "^10.16.5",
     "next": "^13.5.6",

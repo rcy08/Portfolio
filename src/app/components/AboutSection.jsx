@@ -1,5 +1,5 @@
 "use client";
-import React, { useTransition, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BiSolidChevronsRight } from "react-icons/bi";
@@ -8,6 +8,8 @@ import { easeOut, motion } from 'framer-motion';
 import { Tilt } from 'react-tilt';
 
 import { profiles, TiltOptions, imageLoader, aboutMe } from '@/app/constants/index';
+
+import PersonIcon from '@mui/icons-material/Person';
 
 const AboutSection = () => {
 
@@ -19,7 +21,7 @@ const AboutSection = () => {
 
   return (
     <section className='text-white sm:mb-36' id='about'>
-        <h2 className='text-4xl font-bold text-white mb-4 text-center'> About Me </h2> 
+        <h2 className='text-4xl font-bold text-white mb-4 text-center'> <PersonIcon className='scale-[200%] mr-2 pb-[2px]' /> About Me </h2> 
         <div className='md:grid md:grid-cols-2 flex flex-col justify-center md:flex-none gap-8 items-center py-8 px-0 xl:gap-16 sm:py-16 xl:px-16'>
             <Tilt
                 options={TiltOptions}

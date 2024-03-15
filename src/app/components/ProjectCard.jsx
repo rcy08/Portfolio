@@ -28,7 +28,7 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl, tags }) =
       </div>
       <div className="text-white rounded-b-xl mt-3">
         <h5 className="text-xl font-semibold mb-2">{title}</h5>
-        <p className="text-[#ADB7BE] text-sm text-justify">{description}</p>
+        <p className="text-[#ADB7BE] text-sm">{description}</p>
       </div>
       <div className="mt-4 flex justify-between">
         {

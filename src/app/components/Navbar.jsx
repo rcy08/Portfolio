@@ -1,19 +1,48 @@
 "use client";
-import Link from 'next/link';
 import React, { useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import MenuOverlay from './MenuOverlay';
 import { navLinks } from '../constants';
-import { easeInOut, motion, spring } from 'framer-motion';
+import { motion } from 'framer-motion';
+
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
 
 const Navbar = () => {
-    const [navbarOpen, setNavbarOpen] = useState(false);
     const [showBar, setShowBar] = useState(false);
     const [i, setI] = useState('');
 
+    const [state, setState] = useState(false);
+    
+    const toggleDrawer = (open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+        setState(open);
+    };
+    
+    const list = () => (
+        <Box
+            sx={{ width: 285 }}
+            role="presentation"
+        >
+            <div className='w-full min-h-[100vh] bg-[#222]'>
+                <button 
+                    onClick={toggleDrawer(false)} 
+                    className='absolute right-4 top-4 flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white'
+                >
+                    <XMarkIcon className='h-5 w-5' />
+                </button>
+
+                <MenuOverlay links={navLinks} setState={setState} />
+
+            </div>
+        </Box>
+    );
+
   return (
-    <nav className='fixed top-0 left-0 right-0 z-20 w-full bg-[#121212] bg-opacity-100 shadow-md shadow-[#0c0c0c]'>
-        <div className='h-[3px] w-full bg-[#121212]' />
+    <nav className='fixed top-0 left-0 right-0 z-20 w-full bg-[#222] bg-opacity-100 shadow-md shadow-[#0c0c0c]'>
+        <div className='h-[3px] w-full bg-[#222]' />
         <div className='flex flex-wrap items-center justify-between mx-auto px-4 py-2'>
             <button 
                 className='ml-8 my-2 lg:ml-28 text-lg md:text-xl text-white font-bold'
@@ -24,25 +53,12 @@ const Navbar = () => {
                 <p className='head text-2xl' > Chinmay </p>  
             </button>
             <div className='mobile-menu block md:hidden'>
-                {
-                    !navbarOpen ? (
-                        <button 
-                            onClick={() => setNavbarOpen(true)} 
-                            className='flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white'
-                        >
-                            <Bars3Icon className='h-5 w-5' />
-                        </button>
-
-                    ) : (
-
-                        <button 
-                            onClick={() => setNavbarOpen(false)} 
-                            className='flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white'
-                        >
-                            <XMarkIcon className='h-5 w-5' />
-                        </button>
-                    )
-                }
+                <button 
+                    onClick={toggleDrawer(true)}
+                    className='flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white'
+                >
+                    <Bars3Icon className='h-5 w-5' />
+                </button>
             </div>
             <div className='menu hidden md:block md:w-auto md:mr-4 lg:mr-24' id='navbar'>
                 <ul className='flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0'>
@@ -51,12 +67,20 @@ const Navbar = () => {
                             <li key={index}>
                                 <button 
                                     onClick={() => {
-                                        const targetElement = document.querySelector(`#${link.path}`);
-                                            if (targetElement) {
+                                        if(link.path === '/'){
                                             window.scrollTo({
-                                                top: targetElement.offsetTop - 70,
+                                                top: 0,
                                                 behavior: 'smooth',
                                             });
+                                        }
+                                        else{
+                                            const targetElement = document.querySelector(`#${link.path}`);
+                                                if (targetElement) {
+                                                window.scrollTo({
+                                                    top: targetElement.offsetTop,
+                                                    behavior: 'smooth',
+                                                });
+                                            }  
                                         }
                                     }}
                                     onMouseEnter={() => {setShowBar(true); setI(index)}}
@@ -105,32 +129,18 @@ const Navbar = () => {
                 </ul>
             </div>
         </div>
-        {navbarOpen ? 
-            <motion.div
-                variants={{
-                    hidden: {
-                        opacity: 0,
-                        y: -50
-                    },
-                    show: {
-                        opacity: 1,
-                        y: 0,
-                        transition: {
-                            type: spring,
-                            duration: 0.3,
-                            stiffness: 600,
-                            damping: 10,
-                            ease: easeInOut
-                        }
-                    }
-                }}
-                initial='hidden'
-                animate='show'
-            >
-                <MenuOverlay links={navLinks} setNavbarOpen={setNavbarOpen} /> 
-            </motion.div>
-            : null
-        }
+
+        <div>
+            <React.Fragment key={'right'}>
+                <Drawer
+                    anchor={'right'}
+                    open={state}
+                    onClose={toggleDrawer(false)}
+                >
+                    {list('right')}
+                </Drawer>
+            </React.Fragment>
+        </div>
     </nav>
   )
 }

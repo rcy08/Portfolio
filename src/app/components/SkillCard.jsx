@@ -5,7 +5,7 @@ import { imageLoader } from '../constants';
 
 const SkillCard = ({ title, url }) => {
   return (
-    <div className='flex flex-col justify-between items-center hover:bg-[#181434] hover:shadow-lg hover:shadow-[#413c64] rounded-xl sm:ml-0 sm:mr-0 ml-[8px] mr-[8px]'>
+    <div className='flex flex-col justify-between items-center hover:bg-[#181434] hover:shadow-lg hover:shadow-[#534d7f] rounded-xl sm:ml-0 sm:mr-0 ml-[8px] mr-[8px]'>
       <Image 
         loader={imageLoader}
         src={url} 

@@ -13,7 +13,7 @@ export const profiles = [
   {
       url: 'https://codeforces.com/profile/rc08',
       title: 'CodeForces',
-      description: 'Expert (max. rating: 1715)',
+      description: 'Expert (max. rating: 1718)',
   },
   {
       url: 'https://leetcode.com/rc08',
@@ -120,6 +120,10 @@ export const socialLinks = [
 ];
 
 export const navLinks = [
+  {
+    title: "Home",
+    path: "/"
+  },
   {
     title: "About",
     path: "about"
@@ -284,31 +288,36 @@ export const skillsData = [
   },
   {
     id: 15,
+    title: "Flask",
+    path: 'static/images/skills/flask.svg',
+  },
+  {
+    id: 16,
     title: "MySQL",
     path: 'static/images/skills/sql.svg',
   },
   {
-    id: 16,
+    id: 17,
     title: "TailwindCSS",
     path: 'static/images/skills/tailwind.svg',
   },
   {
-    id: 17,
+    id: 18,
     title: "Framer",
     path: 'static/images/skills/framer.svg',
   },
   {
-    id: 18,
+    id: 19,
     title: "ThreeJs",
     path: 'static/images/skills/three.svg',
   },
   {
-    id: 19,
+    id: 20,
     title: "Git",
     path: 'static/images/skills/git.svg',
   },
   {
-    id: 20,
+    id: 21,
     title: "Github",
     path: 'static/images/skills/github.webp',
   },

@@ -8,6 +8,8 @@ import  Image  from 'next/image';
   
 import { educations, imageLoader } from '../constants';
 
+import SchoolIcon from '@mui/icons-material/School';
+
 const EducationCard = ({ education }) => {
     const { ref, inView } = useInView({
         triggerOnce: false,
@@ -75,7 +77,7 @@ const EducationCard = ({ education }) => {
 const EducationSection = () => {
   return (
     <section className='text-white sm:mb-36' id='education'>  
-        <h2 className='text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-16'> My Education </h2>
+        <h2 className='text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-16'> <SchoolIcon className='scale-[200%] mr-3 pb-[2px]' />  My Education </h2>
         <div className='mt-20 flex flex-col mb-20'>
             <VerticalTimeline lineColor='#e4e4e7'>
                 {educations.map((education, index) => (

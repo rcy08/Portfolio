@@ -7,10 +7,13 @@ import { Tilt } from 'react-tilt';
 
 import { TiltOptions, projectsData } from '../constants';
 
+import CodeIcon from '@mui/icons-material/Code';
+
 const ProjectsSection = () => {
   return (
     <section id='projects' className='text-white min-h-[100vh] flex flex-col justify-center items-center'>
         <h2 className='text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-16'> 
+            <CodeIcon className='scale-[225%] mr-5 pb-[2px]' />
             My Projects 
         </h2>
 

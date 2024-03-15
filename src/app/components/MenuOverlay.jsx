@@ -1,9 +1,9 @@
 import React from 'react';
 import { easeInOut, motion, spring } from 'framer-motion';
 
-const MenuOverlay = ({ links, setNavbarOpen }) => {
+const MenuOverlay = ({ links, setState }) => {
   return (
-    <ul className='flex flex-col py-4 items-center'>
+    <ul className='flex flex-col py-4 px-14 items-start pt-28'>
       {
         links.map((link, index) => (
             <motion.li 
@@ -31,18 +31,26 @@ const MenuOverlay = ({ links, setNavbarOpen }) => {
             >
               <button
                 onClick={() => {
-                  setNavbarOpen(false);
-                  const targetElement = document.querySelector(`#${link.path}`);
-                    if (targetElement) {
+                  setState(false);
+                  if(link.path === '/'){
                     window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth',
+                      top: 0,
+                      behavior: 'smooth',
                     });
+                  }
+                  else{
+                    const targetElement = document.querySelector(`#${link.path}`);
+                      if (targetElement) {
+                      window.scrollTo({
+                          top: targetElement.offsetTop,
+                          behavior: 'smooth',
+                      });
+                    }  
                   }
                 }}
               >
                 <p
-                  className='block py-2 text-violet-700 sm:text-[#ADB7BE] sm:text-lg rounded md:p-0 hover:text-white'
+                  className='block my-3 py-2 text-violet-600 font-bold sm:text-[#ADB7BE] text-xl rounded md:p-0 hover:text-white'
                 >
                     {link.title}     
                 </p>

@@ -15,6 +15,7 @@ import { easeInOut, motion } from 'framer-motion';
 import Loader from './components/Loader';
 import { FaRegArrowAltCircleUp } from "react-icons/fa";
 import { subdomains } from './constants';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 export default function Home() {
 
@@ -117,18 +118,18 @@ export default function Home() {
               !atTop && 
 
               <motion.button 
-                className='fixed bottom-8 right-16 sm:bottom-16 sm:right-24' 
+                className='fixed bottom-8 right-8 sm:bottom-16 sm:right-16 bg-purple-600 p-2 rounded-full' 
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 variants={{
                   hidden: {
                     opacity: 0,
-                    x: 100,
+                    y: -(window.screen.height - 64),
                   },
                   show: {
                     opacity: 1,
-                    x: 0,
+                    y: 0,
                     transition: {
-                      duration: 0.75,
+                      duration: 0.6,
                       type: 'tween',
                       ease: easeInOut
                     }
@@ -136,7 +137,7 @@ export default function Home() {
                 }}
                 initial='hidden'
                 animate='show'
-              > <FaRegArrowAltCircleUp className='w-[300%] h-[300%] rounded-full' /> </motion.button>
+              > <KeyboardArrowUpIcon className='scale-[150%] rounded-full' /> </motion.button>
   
             }
             
