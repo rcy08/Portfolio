@@ -23,7 +23,7 @@ const Navbar = () => {
     
     const list = () => (
         <Box
-            sx={{ width: 285 }}
+            sx={{ width: ((4 / 5) * window.screen.width) }}
             role="presentation"
         >
             <div className='w-full min-h-[100vh] bg-[#222]'>
