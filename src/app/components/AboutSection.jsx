@@ -25,7 +25,7 @@ const AboutSection = () => {
         <div className='md:grid md:grid-cols-2 flex flex-col justify-center md:flex-none gap-8 items-center py-8 px-0 xl:gap-16 sm:py-16 xl:px-16'>
             <Tilt
                 options={TiltOptions}
-                className='w-[275px] h-[275px] sm:w-[325px] sm:h-[352px] lg:w-[400px] lg:h-[400px] mb-16'
+                className='w-[275px] h-[350px] sm:w-[325px] sm:h-[425px] lg:w-[400px] lg:h-[400px] mb-16'
             >
                 <Image 
                     loader={imageLoader}
