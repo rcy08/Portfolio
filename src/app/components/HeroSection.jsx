@@ -57,6 +57,8 @@ const HeroSection = () => {
                                 1000,
                                 ' Web Development',
                                 1000,
+                                ' Android Development',
+                                1000,
                             ]}
                             wrapper="span"
                             speed={50}

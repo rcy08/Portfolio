@@ -70,7 +70,7 @@ const Footer = () => {
 
           <div className="relative">
             <h5 className="mb-4 text-2xl"> Contact </h5>
-              <div className="flex flex-row items-center mb-2"> <MdEmail className="mr-2" /> <Link href={`mailto:rajchinmay08@gmail.com`} target='_blank' className='hover:text-[#DC143C]'> rajchinmay08@gmail.com </Link> </div>
+              <div className="flex flex-row items-center mb-2"> <MdEmail className="mr-2" /> <Link href={`mailto:rajchinmay08@gmail.com`} target='_blank' className='hover:font-semibold'> rajchinmay08@gmail.com </Link> </div>
               <div className="flex flex-row items-center mb-4"> <FaLocationCrosshairs className="mr-2"/> <p> Indore, India </p> </div>
 
               <div className='mt-4 flex flex-row justify-center md:justify-start'>

@@ -41,7 +41,7 @@ const Navbar = () => {
     );
 
   return (
-    <nav className='fixed top-0 left-0 right-0 z-20 w-full bg-[#222] bg-opacity-100 shadow-md shadow-[#0c0c0c]'>
+    <nav className='fixed top-0 left-0 right-0 z-20 w-full bg-[#212121] bg-opacity-[93%] shadow-lg shadow-[#0c0c0c]'>
         <div className='h-[3px] w-full bg-[#222]' />
         <div className='flex flex-wrap items-center justify-between mx-auto px-4 py-2'>
             <button 
@@ -97,8 +97,8 @@ const Navbar = () => {
                                             variants={{
                                                 hidden: {
                                                     opacity: 0,
-                                                    width: '25%',
-                                                    height: 2
+                                                    width: '0%',
+                                                    height: 2.5
                                                 },
                                                 show: {
                                                     opacity: 1,
@@ -110,8 +110,8 @@ const Navbar = () => {
                                                 },
                                                 leave: {
                                                     opacity: 0,
-                                                    width: '25%',
-                                                    height: 2,
+                                                    width: '0%',
+                                                    height: 2.5,
                                                     transition: {
                                                         duration: 0.5
                                                     }

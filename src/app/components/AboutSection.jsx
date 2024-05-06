@@ -29,7 +29,7 @@ const AboutSection = () => {
             >
                 <Image 
                     loader={imageLoader}
-                    src={'static/images/about-image.webp'} 
+                    src={'static/images/about-image2.jpg'} 
                     alt='my-image' 
                     width={350} 
                     height={350} 
