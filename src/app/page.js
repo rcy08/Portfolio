@@ -13,7 +13,6 @@ import Forbidden from './components/Forbidden';
 
 import { easeInOut, motion } from 'framer-motion';
 import Loader from './components/Loader';
-import { FaRegArrowAltCircleUp } from "react-icons/fa";
 import { subdomains } from './constants';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
@@ -71,9 +70,6 @@ export default function Home() {
 
   useEffect(() => {
     if(typeof window !== undefined){
-      if(window.location.href === 'https://rc08.pro' || window.location.href === 'https://rc08.pro/'){
-        window.location.href = 'https://www.rc08.pro';
-      }
       const currentUrl = new URL(window.location.href);
       if(currentUrl.hostname.includes('.')){
         setSubdomain(currentUrl.hostname.split('.')[0]);
@@ -98,7 +94,7 @@ export default function Home() {
 
             <div 
               className='min-h-[100vh]'
-              style={{ background: `url(https://rc08-s3.s3.ap-south-1.amazonaws.com/static/images/herobg.webp) no-repeat center center/cover` }}
+              style={{ background: `url(${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/static/images/herobg.webp) no-repeat center center/cover` }}
             >
               <Navbar/>
               <div className='container mt-24 mx-auto pl-[36px] pr-[36px] md:px-12 py-4 flex'> <HeroSection/> </div>   
@@ -137,7 +133,9 @@ export default function Home() {
                 }}
                 initial='hidden'
                 animate='show'
-              > <KeyboardArrowUpIcon className='scale-[150%] rounded-full' /> </motion.button>
+              > 
+                <KeyboardArrowUpIcon className='scale-[150%] rounded-full' /> 
+              </motion.button>
   
             }
             

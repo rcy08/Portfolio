@@ -6,7 +6,7 @@ import 'react-vertical-timeline-component/style.min.css';
 import { useInView } from "react-intersection-observer";
 import  Image  from 'next/image';
   
-import { educations, imageLoader } from '../constants';
+import { educations, imageLoader, educationHeader } from '../constants';
 
 import SchoolIcon from '@mui/icons-material/School';
 
@@ -16,7 +16,10 @@ const EducationCard = ({ education }) => {
     });
 
     return (
-        <div ref={ref} className="vertical-timeline-element">
+        <div 
+            ref={ref} 
+            className="vertical-timeline-element"
+        >
             <VerticalTimelineElement
                 contentStyle={{
                     background: "#1d1836",
@@ -43,11 +46,15 @@ const EducationCard = ({ education }) => {
                 visible={inView}
             >
             <button 
-                onClick={() => window.open(education.url, '_blank')}
+                onClick={
+                    () => window.open(education.url, '_blank')
+                }
                 className='w-full h-full text-left'
             >
                 <div>
-                    <h3 className='text-white text-[24px] font-bold mb-4'>{education.title}</h3>
+                    <h3 className='text-white text-[24px] font-bold mb-4'>
+                        {education.title}
+                    </h3>
                     <p
                         className='text-secondary text-[16px] font-semibold'
                         style={{ margin: 0 }}
@@ -76,8 +83,14 @@ const EducationCard = ({ education }) => {
 
 const EducationSection = () => {
   return (
-    <section className='text-white sm:mb-36' id='education'>  
-        <h2 className='text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-16'> <SchoolIcon className='scale-[200%] mr-3 pb-[2px]' />  My Education </h2>
+    <section 
+        className='text-white sm:mb-36' 
+        id='education'
+    >  
+        <h2 className='text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-16'> 
+            <SchoolIcon className='scale-[200%] mr-3 pb-[2px]' />  
+            { educationHeader }
+        </h2>
         <div className='mt-20 flex flex-col mb-20'>
             <VerticalTimeline lineColor='#e4e4e7'>
                 {educations.map((education, index) => (

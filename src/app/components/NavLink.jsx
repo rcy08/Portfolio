@@ -4,7 +4,9 @@ const NavLink = ({ href, title, setNavbarOpen }) => {
     <a
         href={`#${href}`}
         className='block py-2 text-violet-700 sm:text-[#ADB7BE] sm:text-lg rounded md:p-0 hover:text-white'
-        onClick={() => setNavbarOpen(false)}
+        onClick={
+          () => setNavbarOpen(false)
+        }
     >
         {title}
     </a>

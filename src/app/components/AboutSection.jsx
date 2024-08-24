@@ -7,7 +7,18 @@ import { BiSolidChevronsRight } from "react-icons/bi";
 import { easeOut, motion } from 'framer-motion';
 import { Tilt } from 'react-tilt';
 
-import { profiles, TiltOptions, imageLoader, aboutMe } from '@/app/constants/index';
+import { 
+    profiles, 
+    TiltOptions, 
+    imageLoader, 
+    myEmail, 
+    aboutMeHeader, 
+    aboutMe, 
+    aboutMeText, 
+    resume, 
+    codingProfileHeader 
+} from '@/app/constants/index';
+import { MY_IMAGE_URL, MY_RESUME_URL } from '../constants/url';
 
 import PersonIcon from '@mui/icons-material/Person';
 
@@ -20,8 +31,14 @@ const AboutSection = () => {
     }
 
   return (
-    <section className='text-white sm:mb-36' id='about'>
-        <h2 className='text-4xl font-bold text-white mb-4 text-center'> <PersonIcon className='scale-[200%] mr-2 pb-[2px]' /> About Me </h2> 
+    <section 
+        className='text-white sm:mb-36' 
+        id='about'
+    >
+        <h2 className='text-4xl font-bold text-white mb-4 text-center'> 
+            <PersonIcon className='scale-[200%] mr-2 pb-[2px]' /> 
+            { aboutMeHeader }
+        </h2> 
         <div className='md:grid md:grid-cols-2 flex flex-col justify-center md:flex-none gap-8 items-center py-8 px-0 xl:gap-16 sm:py-16 xl:px-16'>
             <Tilt
                 options={TiltOptions}
@@ -29,7 +46,7 @@ const AboutSection = () => {
             >
                 <Image 
                     loader={imageLoader}
-                    src={'static/images/about-image2.jpg'} 
+                    src={MY_IMAGE_URL} 
                     alt='my-image' 
                     width={350} 
                     height={350} 
@@ -37,10 +54,7 @@ const AboutSection = () => {
                     id='myImage'
                 />
             </Tilt>
-            <div 
-                className='mt-4 md:mt-16 text-left flex flex-col h-full'
-            >
-                
+            <div className='mt-4 md:mt-16 text-left flex flex-col h-full'>
                 <motion.p
                     className='text-base lg:text-md'
                     variants={{
@@ -65,7 +79,14 @@ const AboutSection = () => {
                 >   
                     {aboutMe}
                     <div className='h-[20px] bg-transparent' />
-                    Feel free to reach out to me at: <Link href={`mailto:rajchinmay08@gmail.com`} target='_blank' className='text-blue-500 hover:text-blue-700 underline'> rajchinmay08@gmail.com </Link>
+                    { aboutMeText } 
+                    <Link 
+                        href={`mailto:${myEmail}`} 
+                        target='_blank' 
+                        className='text-blue-500 hover:text-blue-700 underline'
+                    > 
+                        { myEmail } 
+                    </Link>
                 </motion.p>
                 <br />
                 <br />
@@ -90,7 +111,9 @@ const AboutSection = () => {
                     initial='hidden'
                     whileInView='visible'
                     viewport={{ amount: 0.25 }}
-                > My Coding Profiles </motion.h2> 
+                > 
+                    { codingProfileHeader } 
+                </motion.h2> 
                 
                 {
                     profiles.map((profile, index) => (
@@ -118,7 +141,11 @@ const AboutSection = () => {
                             viewport={{ amount: 0.25 }}
                         >
                                 <BiSolidChevronsRight className='mr-2' />
-                                <Link href={profile.url} className='text-blue-500 hover:text-blue-700 mr-[7px]' target='_blank'> {profile.title}: </Link>
+                                <Link 
+                                    href={profile.url} 
+                                    className='text-blue-500 hover:text-blue-700 mr-[7px]' target='_blank'> 
+                                    {profile.title}: 
+                                </Link>
                                 <p> {profile.description} </p>
                         </motion.div>
                     ))
@@ -126,9 +153,11 @@ const AboutSection = () => {
                 
                 <button 
                     className='mt-8 sm:mt-12 px-6 py-3 w-full sm:w-fit rounded-xl mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white font-semibold'
-                    onClick={() => window.open('/static/Chinmay_Resume.pdf', '_blank')}
+                    onClick={
+                        () => window.open(MY_RESUME_URL, '_blank')
+                    }
                 > 
-                    Resume
+                    { resume }
                 </button>
             </div>
         </div>

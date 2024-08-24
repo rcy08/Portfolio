@@ -12,7 +12,10 @@ const SocialIcons = ({ url, icon }) => {
         scale: 1.1
       }}
     >
-      <Link href={url} target='_blank' > 
+      <Link 
+        href={url} 
+        target='_blank' 
+      > 
         <Image 
           loader={imageLoader}
           src={icon} 

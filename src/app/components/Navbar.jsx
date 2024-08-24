@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import MenuOverlay from './MenuOverlay';
-import { navLinks } from '../constants';
+import { navLinks, myName } from '../constants';
 import { motion } from 'framer-motion';
 
 import Box from '@mui/material/Box';
@@ -50,7 +50,7 @@ const Navbar = () => {
                     window.scrollTo({ top: 0, behavior: 'smooth' }); 
                 }}
             > 
-                <p className='head text-2xl' > Chinmay </p>  
+                <p className='head text-2xl' > { myName } </p>  
             </button>
             <div className='mobile-menu block md:hidden'>
                 <button 

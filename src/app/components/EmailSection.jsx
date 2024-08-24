@@ -4,7 +4,17 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { motion, easeOut } from 'framer-motion';
-import { imageLoader } from "../constants";
+import { 
+  imageLoader, 
+  letConnect, 
+  emailSectionBody, 
+  mailSent,
+  yourMail,
+  subject,
+  message,
+  sendMessage 
+} from "../constants";
+import { GITHUB_LOGO_URL, LINKEDIN_LOGO_URL, MY_GITHUB_PROFILE_URL, MY_LINKEDIN_PROFILE_URL } from "../constants/url";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -65,13 +75,11 @@ const EmailSection = () => {
         viewport={{ amount: 0.25 }}
       >
         <h5 className="text-xl font-bold text-white my-2">
-          Let&apos;s Connect
+          { letConnect }
         </h5>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
           {" "}
-          I&apos;m currently looking for Software Engineer roles, my inbox is always
-          open. Whether you have a question or just want to say hi, I&apos;ll
-          try my best to get back to you!
+          { emailSectionBody }
         </p>
         <div className="socials flex flex-row gap-2 md:justify-start justify-center my-[32px]">
           <motion.div
@@ -80,10 +88,13 @@ const EmailSection = () => {
               scale: 1.1
             }}
           >
-            <Link href="https://github.com/rcy08" target="_blank">
+            <Link 
+              href={MY_GITHUB_PROFILE_URL}
+              target="_blank"
+            >
               <Image 
                 loader={imageLoader}
-                src={'static/icons/github-icon.svg'} 
+                src={GITHUB_LOGO_URL} 
                 alt="Github Icon" 
                 width={40}
                 height={40}
@@ -95,10 +106,13 @@ const EmailSection = () => {
               scale: 1.1
             }}
           >
-            <Link href="https://linkedin.com/in/rcy08" target="_blank">
+            <Link 
+              href={MY_LINKEDIN_PROFILE_URL} 
+              target="_blank"
+            >
               <Image 
                 loader={imageLoader}
-                src={'static/icons/linkedin-icon.svg'} 
+                src={LINKEDIN_LOGO_URL} 
                 alt="Linkedin Icon" 
                 width={40}
                 height={40}
@@ -110,16 +124,19 @@ const EmailSection = () => {
       <div>
         {emailSubmitted ? (
           <p className="text-green-500 text-sm mt-2">
-            Email sent successfully!
+            { mailSent }
           </p>
         ) : (
-          <form className="flex flex-col" onSubmit={handleSubmit}>
+          <form 
+            className="flex flex-col" 
+            onSubmit={handleSubmit}
+          >
             <div className="mb-6">
               <label
                 htmlFor="email"
                 className="text-white block mb-2 text-sm font-medium"
               >
-                Your email
+                { yourMail }
               </label>
               <input
                 name="email"
@@ -135,7 +152,7 @@ const EmailSection = () => {
                 htmlFor="subject"
                 className="text-white block text-sm mb-2 font-medium"
               >
-                Subject
+                { subject }
               </label>
               <input
                 name="subject"
@@ -151,7 +168,7 @@ const EmailSection = () => {
                 htmlFor="message"
                 className="text-white block text-sm mb-2 font-medium"
               >
-                Message
+                { message }
               </label>
               <textarea
                 name="message"
@@ -169,7 +186,9 @@ const EmailSection = () => {
                 scale: 1.05,
                 transition: { duration: 0.1 }
               }} 
-              > Send Message </motion.p> 
+              >
+                { sendMessage }
+              </motion.p> 
             </button>
           </form>
         )}

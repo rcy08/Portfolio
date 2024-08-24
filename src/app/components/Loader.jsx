@@ -2,6 +2,7 @@
 import Image from 'next/image';
 
 import { imageLoader } from '../constants';
+import { LOADER_URL } from '../constants/url';
 
 const Loader = () => {
   return (
@@ -10,8 +11,8 @@ const Loader = () => {
     >
       <Image 
         loader={imageLoader}
-        src={'static/icons/loader.webp'}
-        alt='Loading...'  
+        src={LOADER_URL}
+        alt='Loading...'
         width={300}
         height={300}
       />

@@ -7,24 +7,41 @@ import { GoArrowRight } from "react-icons/go";
 import { FaLocationCrosshairs } from "react-icons/fa6";
 
 import { motion } from 'framer-motion';
-import { quickLinks, socialLinks, imageLoader } from "../constants";
+import { 
+  quickLinks, 
+  socialLinks, 
+  imageLoader, 
+  myName, 
+  quickLinksHeader, 
+  contact, 
+  myEmail, 
+  myLocation 
+} from "../constants";
 
 const Footer = () => {
   return (
     <footer className="footer border z-10 border-t-[#33353F] border-l-transparent border-r-transparent text-white">
       <div className="container p-4 md:p-8 flex md:flex-row flex-col justify-between">
-
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={
+              () => window.scrollTo(
+                { 
+                  top: 0, 
+                  behavior: 'smooth' 
+                }
+              )
+            }
             className="h-fit w-fit"
           >
             <div className="text-2xl md:mb-0 mb-12"> 
-              Chinmay 
+              { myName } 
             </div>  
           </button>
 
           <div className="md:flex md:flex-col md:mb-0 mb-8">
-            <h2 className="mb-4 text-2xl"> Quick Links </h2>
+            <h2 className="mb-4 text-2xl"> 
+              { quickLinksHeader } 
+            </h2>
             {
               quickLinks.map((link, index) => (
                 <div className="mb-2 display-inline" key={index}>
@@ -41,8 +58,8 @@ const Footer = () => {
                         const targetElement = document.querySelector(`#${link.url}`);
                         if (targetElement) {
                           window.scrollTo({
-                              top: targetElement.offsetTop - 70,
-                              behavior: 'smooth',
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth',
                           });
                         }
                       }
@@ -69,21 +86,41 @@ const Footer = () => {
           </div>
 
           <div className="relative">
-            <h5 className="mb-4 text-2xl"> Contact </h5>
-              <div className="flex flex-row items-center mb-2"> <MdEmail className="mr-2" /> <Link href={`mailto:rajchinmay08@gmail.com`} target='_blank' className='hover:font-semibold'> rajchinmay08@gmail.com </Link> </div>
-              <div className="flex flex-row items-center mb-4"> <FaLocationCrosshairs className="mr-2"/> <p> Indore, India </p> </div>
+            <h5 className="mb-4 text-2xl"> 
+              { contact } 
+            </h5>
+              <div className="flex flex-row items-center mb-2"> 
+                <MdEmail className="mr-2" /> 
+                <Link 
+                  href={`mailto:${myEmail}`} 
+                  target='_blank' 
+                  className='hover:font-semibold'
+                > 
+                  { myEmail } 
+                </Link> 
+              </div>
+              <div className="flex flex-row items-center mb-4"> 
+                <FaLocationCrosshairs className="mr-2"/> 
+                <p>
+                  { myLocation }
+                </p> 
+              </div>
 
               <div className='mt-4 flex flex-row justify-center md:justify-start'>
 
                 {
                   socialLinks.map((link, index) => (
                     <motion.div
-                      className='mr-4 mt-2' key={index}
+                      key={index}
+                      className='mr-4 mt-2' 
                       whileHover={{
                         scale: 1.1
                       }}
                     >
-                        <Link href={`${link.url}`} target='_blank'> 
+                        <Link 
+                          href={`${link.url}`} 
+                          target='_blank'
+                        > 
                           <Image 
                             loader={imageLoader}
                             src={link.path} 

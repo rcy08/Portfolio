@@ -5,7 +5,7 @@ import ProjectCard from './ProjectCard';
 import { easeOut, motion } from 'framer-motion';
 import { Tilt } from 'react-tilt';
 
-import { TiltOptions, projectsData } from '../constants';
+import { TiltOptions, projectSectionHeader, projectsData, projectSectionBody } from '../constants';
 
 import CodeIcon from '@mui/icons-material/Code';
 
@@ -13,12 +13,12 @@ const ProjectsSection = () => {
   return (
     <section id='projects' className='text-white min-h-[100vh] flex flex-col justify-center items-center'>
         <h2 className='text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-16'> 
-            <CodeIcon className='scale-[225%] mr-5 pb-[2px]' />
-            My Projects 
+          <CodeIcon className='scale-[225%] mr-5 pb-[2px]' />
+          { projectSectionHeader } 
         </h2>
 
         <p className='mb-16 md:w-5/6 ml-4 mr-4 text-left sm:text-center'>
-          Following projects showcases my skills and experience through real-world examples of my work. Each project is briefly described with links to code repositories and live demos in it. It reflects my ability to solve complex problems, work with different technologies, and manage projects effectively.
+          { projectSectionBody }
         </p>
 
         <div className='grid md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-12 lg:gap-28 xl:gap-20'>
@@ -53,15 +53,15 @@ const ProjectsSection = () => {
                     options={TiltOptions} 
                     className='bg-[#181434] md:p-[10px] lg:p-[20px] px-4 py-2 w-[300px] lg:w-[375px] xl:w-[325px] mb-8 rounded-xl'
                   >
-                      <ProjectCard 
-                        key={project.id} 
-                        title={project.title} 
-                        description={project.description} 
-                        imgUrl={project.image} 
-                        gitUrl={project.gitUrl}
-                        previewUrl={project.previewUrl}
-                        tags={project.tags}
-                      />  
+                    <ProjectCard 
+                      key={project.id} 
+                      title={project.title} 
+                      description={project.description} 
+                      imgUrl={project.image} 
+                      gitUrl={project.gitUrl}
+                      previewUrl={project.previewUrl}
+                      tags={project.tags}
+                    />  
                     
                   </Tilt>    
 
