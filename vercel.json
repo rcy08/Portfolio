@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "name": "chinmay_portfolio_prebuild",
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@vercel/static-build"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
+      }
+    ]
+  }
+  
