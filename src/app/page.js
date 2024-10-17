@@ -38,15 +38,15 @@ export default function Home() {
 
   const [atTop, setAtTop] = useState(true);
 
-  if(!loading){
+  if (!loading) {
     window.addEventListener('scroll', () => {
-      if(window.scrollY > 0){
-        if(atTop) setAtTop(!atTop);
+      if (window.scrollY > 0) {
+        if (atTop) setAtTop(!atTop);
       }
-      else{
-        if(!atTop) setAtTop(!atTop);
+      else {
+        if (!atTop) setAtTop(!atTop);
       }
-    });  
+    });
   }
 
   const [scrollPercentage, setScrollPercentage] = useState(0);
@@ -71,7 +71,7 @@ export default function Home() {
   useEffect(() => {
     if(typeof window !== 'undefined'){
       const currentUrl = new URL(window.location.href);
-      if(currentUrl.hostname.includes('.')){
+      if (currentUrl.hostname.includes('.')) {
         setSubdomain(currentUrl.hostname.split('.')[0]);
       }
     }
@@ -79,72 +79,72 @@ export default function Home() {
 
   return (
     <>
-        {
-          loading ? <Loader /> :
+      {
+        loading ? <Loader /> :
 
           <>
 
-          <div className={`w-full h-[100vh] ${(!subdomain || !subdomains.includes(subdomain)) && 'hidden'}`}>
-            <Forbidden />
-          </div>
-
-          <div className={`fixed top-0 left-0 h-[4px] bg-violet-700 z-30 ${subdomain && subdomains.includes(subdomain) && 'hidden'}`} style={{ width: `${scrollPercentage}%` }} />
-
-          <main className={`flex min-h-screen flex-col bg-[#121212] ${subdomain && subdomains.includes(subdomain) && 'hidden'}`}>
-
-            <div 
-              className='min-h-[100vh]'
-              style={{ background: `url(${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/static/images/herobg.webp) no-repeat center center/cover` }}
-            >
-              <Navbar/>
-              <div className='container mt-24 mx-auto pl-[36px] pr-[36px] md:px-12 py-4 flex'> <HeroSection/> </div>   
+            <div className={`w-full h-[100vh] ${(!subdomain || !subdomains.includes(subdomain)) && 'hidden'}`}>
+              <Forbidden />
             </div>
-          
-            <div className='container mt-24 mx-auto pl-[36px] pr-[36px] md:px-12 py-4'>
-              <AboutSection/>
-              <SkillsSection/>
-              <EducationSection/>
-              <ProjectsSection/>
-              <EmailSection/>
-              <Footer/>
-            </div>  
 
-            {
+            <div className={`fixed top-0 left-0 h-[4px] bg-violet-700 z-30 ${subdomain && subdomains.includes(subdomain) && 'hidden'}`} style={{ width: `${scrollPercentage}%` }} />
 
-              !atTop && 
+            <main className={`flex min-h-screen flex-col bg-[#121212] ${subdomain && subdomains.includes(subdomain) && 'hidden'}`}>
 
-              <motion.button 
-                className='fixed bottom-8 right-8 sm:bottom-16 sm:right-16 bg-purple-600 p-2 rounded-full' 
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: -(window.screen.height - 64),
-                  },
-                  show: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.6,
-                      type: 'tween',
-                      ease: easeInOut
+              <div
+                className='min-h-[100vh]'
+                style={{ background: `url(${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/static/images/herobg.webp) no-repeat center center/cover` }}
+              >
+                <Navbar />
+                <div className='container mt-24 mx-auto pl-[36px] pr-[36px] md:px-12 py-4 flex'> <HeroSection /> </div>
+              </div>
+
+              <div className='container mt-24 mx-auto pl-[36px] pr-[36px] md:px-12 py-4'>
+                <AboutSection />
+                <SkillsSection />
+                <EducationSection />
+                <ProjectsSection />
+                <EmailSection />
+                <Footer />
+              </div>
+
+              {
+
+                !atTop &&
+
+                <motion.button
+                  className='fixed bottom-8 right-8 sm:bottom-16 sm:right-16 bg-purple-600 p-2 rounded-full'
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  variants={{
+                    hidden: {
+                      opacity: 0,
+                      y: -(window.screen.height - 64),
+                    },
+                    show: {
+                      opacity: 1,
+                      y: 0,
+                      transition: {
+                        duration: 0.6,
+                        type: 'tween',
+                        ease: easeInOut
+                      }
                     }
-                  }
-                }}
-                initial='hidden'
-                animate='show'
-              > 
-                <KeyboardArrowUpIcon className='scale-[150%] rounded-full' /> 
-              </motion.button>
-  
-            }
-            
-          </main>
+                  }}
+                  initial='hidden'
+                  animate='show'
+                >
+                  <KeyboardArrowUpIcon className='scale-[150%] rounded-full' />
+                </motion.button>
+
+              }
+
+            </main>
 
           </>
 
-        }
-  
+      }
+
     </>
   )
 }
