@@ -2,7 +2,7 @@
 
 export const MY_GITHUB_PROFILE_URL = 'https://github.com/rcy08';
 
-export const MY_LINKEDIN_PROFILE_URL = 'https://linkedin.com/in/rcy08';
+export const MY_LINKEDIN_PROFILE_URL = 'https://linkedin.com/in/rchinmay';
 
 export const MY_TWITTER_PROFILE_URL = 'https://twitter.com/_rcy08_';
 

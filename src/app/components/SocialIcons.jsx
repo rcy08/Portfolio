@@ -1,9 +1,21 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-
 import { motion } from 'framer-motion';
-import { imageLoader } from '../constants';
+
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { MY_GITHUB_PROFILE_URL, MY_LINKEDIN_PROFILE_URL } from '../constants/url';
+
+export const socialLinks = [
+  {
+    id: 1,
+    url: MY_GITHUB_PROFILE_URL,
+    icon: <GitHubIcon className='scale-[140%]' />
+  },
+  {
+    id: 2,
+    url: MY_LINKEDIN_PROFILE_URL,
+    icon: <LinkedInIcon className='scale-[140%]' />
+  },
+];
 
 const SocialIcons = ({ url, icon }) => {
   return (
@@ -12,18 +24,11 @@ const SocialIcons = ({ url, icon }) => {
         scale: 1.1
       }}
     >
-      <Link 
-        href={url} 
-        target='_blank' 
+      <button 
+        onClick={() => window.open(url, '_blank')}
       > 
-        <Image 
-          loader={imageLoader}
-          src={icon} 
-          alt='Social-Icon' 
-          width={52}
-          height={52}
-        /> 
-      </Link>
+        {icon}
+      </button>
     </motion.div>
   )
 }

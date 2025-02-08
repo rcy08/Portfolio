@@ -114,7 +114,7 @@ export const educations = [
     name: "IIT Indore",
     icon: IITI_LOGO_URL,
     iconBg: "#E6DEDD",
-    date: "Oct 2020 - Present",
+    date: "Oct 2020 - Jul 2024",
     url: IITI_URL,
     points: [
       "Completed"
@@ -165,29 +165,6 @@ export const quickLinks = [
   {
     url: 'contact',
     title: 'Contact'
-  },
-];
-  
-export const socialLinks = [
-  {
-    id: 1,
-    url: MY_GITHUB_PROFILE_URL,
-    path: GITHUB_LOGO_URL
-  },
-  {
-    id: 2,
-    url: MY_LINKEDIN_PROFILE_URL,
-    path: LINKEDIN_LOGO_URL
-  },
-  {
-    id: 3,
-    url: MY_TWITTER_PROFILE_URL,
-    path: TWITTER_LOGO_URL
-  },
-  {
-    id: 4,
-    url: MY_YOUTUBE_PROFILE_URL,
-    path: YOUTUBE_LOGO_URL
   },
 ];
 
@@ -417,4 +394,3 @@ export const message = 'Message';
 export const sendMessage = 'Send Message';
 
 export const forbiddenText = '403 Forbidden';
-

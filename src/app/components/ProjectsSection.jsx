@@ -11,8 +11,8 @@ import CodeIcon from '@mui/icons-material/Code';
 
 const ProjectsSection = () => {
   return (
-    <section id='projects' className='text-white min-h-[100vh] flex flex-col justify-center items-center'>
-        <h2 className='text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-16'> 
+    <section id='projects' className='min-h-[100vh] flex flex-col justify-center items-center'>
+        <h2 className='text-center text-4xl font-bold mt-4 mb-8 md:mb-16'> 
           <CodeIcon className='scale-[225%] mr-5 pb-[2px]' />
           { projectSectionHeader } 
         </h2>

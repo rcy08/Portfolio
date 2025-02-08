@@ -8,8 +8,7 @@ import { FaLocationCrosshairs } from "react-icons/fa6";
 
 import { motion } from 'framer-motion';
 import { 
-  quickLinks, 
-  socialLinks, 
+  quickLinks,  
   imageLoader, 
   myName, 
   quickLinksHeader, 
@@ -18,9 +17,27 @@ import {
   myLocation 
 } from "../constants";
 
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { MY_GITHUB_PROFILE_URL, MY_LINKEDIN_PROFILE_URL } from "../constants/url";
+import SocialIcons from "./SocialIcons";
+
+const socialLinks = [
+  {
+    id: 1,
+    url: MY_GITHUB_PROFILE_URL,
+    icon: <GitHubIcon className='scale-[125%]' />
+  },
+  {
+    id: 2,
+    url: MY_LINKEDIN_PROFILE_URL,
+    icon: <LinkedInIcon className='scale-[125%]' />
+  },
+];
+
 const Footer = () => {
   return (
-    <footer className="footer border z-10 border-t-[#33353F] border-l-transparent border-r-transparent text-white">
+    <footer className="footer border z-10 border-t-[#33353F] border-l-transparent border-r-transparent ">
       <div className="container p-4 md:p-8 flex md:flex-row flex-col justify-between">
           <button
             onClick={
@@ -109,7 +126,7 @@ const Footer = () => {
               <div className='mt-4 flex flex-row justify-center md:justify-start'>
 
                 {
-                  socialLinks.map((link, index) => (
+                  socialLinks?.map((link, index) => (
                     <motion.div
                       key={index}
                       className='mr-4 mt-2' 
@@ -117,18 +134,10 @@ const Footer = () => {
                         scale: 1.1
                       }}
                     >
-                        <Link 
-                          href={`${link.url}`} 
-                          target='_blank'
-                        > 
-                          <Image 
-                            loader={imageLoader}
-                            src={link.path} 
-                            alt="Social-Icon" 
-                            width={46}
-                            height={46}
-                          /> 
-                        </Link>
+                      <SocialIcons
+                        url={link.url}
+                        icon={link.icon}
+                      />
                     </motion.div>
                   ))
                 }
