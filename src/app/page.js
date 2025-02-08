@@ -9,11 +9,9 @@ import SkillsSection from './components/SkillsSection.jsx';
 import EducationSection from './components/EducationSection.jsx';
 import EmailSection from './components/EmailSection.jsx';
 import Footer from './components/Footer.jsx';
-import Forbidden from './components/Forbidden';
 
 import { easeInOut, motion } from 'framer-motion';
 import Loader from './components/Loader';
-import { subdomains } from './constants';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 export default function Home() {
@@ -66,17 +64,6 @@ export default function Home() {
     };
   }, []);
 
-  const [subdomain, setSubdomain] = useState('');
-
-  useEffect(() => {
-    if (typeof window !== undefined) {
-      const currentUrl = new URL(window.location.href);
-      if (currentUrl.hostname.includes('.')) {
-        setSubdomain(currentUrl.hostname.split('.')[0]);
-      }
-    }
-  }, []);
-
   return (
     <>
       {
@@ -84,19 +71,16 @@ export default function Home() {
 
           <>
 
-            <div className={`w-full h-[100vh] ${(!subdomain || !subdomains.includes(subdomain)) && 'hidden'}`}>
-              <Forbidden />
-            </div>
+            <div className={`fixed top-0 left-0 h-[4px] bg-violet-700 z-30`} style={{ width: `${scrollPercentage}%` }} />
 
-            <div className={`fixed top-0 left-0 h-[4px] bg-violet-700 z-30 ${subdomain && subdomains.includes(subdomain) && 'hidden'}`} style={{ width: `${scrollPercentage}%` }} />
-
-            <main className={`flex min-h-screen flex-col bg-[#121212] ${subdomain && subdomains.includes(subdomain) && 'hidden'}`}>
+            <main className={`flex min-h-screen flex-col`}>
 
               <div
                 className='min-h-[100vh]'
-                style={{ background: `url(${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/static/images/herobg.webp) no-repeat center center/cover` }}
               >
-                <Navbar />
+                <Navbar 
+                  atTop={atTop}
+                />
                 <div className='container mt-24 mx-auto pl-[36px] pr-[36px] md:px-12 py-4 flex'> <HeroSection /> </div>
               </div>
 
@@ -134,7 +118,7 @@ export default function Home() {
                   initial='hidden'
                   animate='show'
                 >
-                  <KeyboardArrowUpIcon className='scale-[150%] rounded-full' />
+                  <KeyboardArrowUpIcon className='scale-[150%] rounded-full text-white' />
                 </motion.button>
 
               }

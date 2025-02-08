@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { ThemeProvider } from './context/ThemeContext';
+import { DeviceProvider } from './context/DeviceContext';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,10 +13,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body className={inter.className}>
-        {children}
-        <SpeedInsights />
+        <DeviceProvider>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>  
+        </DeviceProvider>
       </body>
     </html>
-  )
+  );
 }

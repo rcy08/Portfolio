@@ -8,9 +8,9 @@ import CodeIcon from '@mui/icons-material/Code';
 
 const SkillsSection = () => {
   return (
-    <section className='text-white sm:mb-36' id='skills'>
+    <section className='sm:mb-36' id='skills'>
       <div className='mt-4 md:mt-0 text-left flex flex-col h-full mb-16 lg:mb-28 md:mr-2'>
-        <h2 className='text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12'> 
+        <h2 className='text-center text-4xl font-bold  mt-4 mb-8 md:mb-12'> 
           <CodeIcon className='scale-[225%] mr-5 pb-[2px]' />
           { skillSectionHeader }
         </h2>

@@ -1,11 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
 
 import { motion, easeOut } from 'framer-motion';
 import { 
-  imageLoader, 
   letConnect, 
   emailSectionBody, 
   mailSent,
@@ -14,9 +11,29 @@ import {
   message,
   sendMessage 
 } from "../constants";
-import { GITHUB_LOGO_URL, LINKEDIN_LOGO_URL, MY_GITHUB_PROFILE_URL, MY_LINKEDIN_PROFILE_URL } from "../constants/url";
+
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { MY_GITHUB_PROFILE_URL, MY_LINKEDIN_PROFILE_URL } from "../constants/url";
+import SocialIcons from "./SocialIcons";
+
+import { useTheme } from "../context/ThemeContext";
+
+const socialLinks = [
+  {
+    id: 1,
+    url: MY_GITHUB_PROFILE_URL,
+    icon: <GitHubIcon className='scale-[125%]' />
+  },
+  {
+    id: 2,
+    url: MY_LINKEDIN_PROFILE_URL,
+    icon: <LinkedInIcon className='scale-[125%]' />
+  },
+];
 
 const EmailSection = () => {
+  const { theme } = useTheme();
   const [emailSubmitted, setEmailSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -38,7 +55,7 @@ const EmailSection = () => {
     };
 
     const response = await fetch(endpoint, options);
-    const resData = await response.json();
+    // const resData = await response.json();
 
     if (response.status === 200) {
       console.log("Message sent.");
@@ -51,7 +68,13 @@ const EmailSection = () => {
       id="contact"
       className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative"
     >
-      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-y-1/2"></div>
+      <div 
+        className="
+          bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] 
+          from-primary-900 to-transparent rounded-full 
+          h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-y-1/2"
+      >
+      </div>
       <motion.div 
         className="z-10"
         variants={{
@@ -74,51 +97,24 @@ const EmailSection = () => {
         whileInView='visible'
         viewport={{ amount: 0.25 }}
       >
-        <h5 className="text-xl font-bold text-white my-2">
+        <h5 className="text-xl font-bold my-2">
           { letConnect }
         </h5>
-        <p className="text-[#ADB7BE] mb-4 max-w-md">
+        <p className={`${theme === "dark" && "text-[#ADB7BE]"} mb-4 max-w-md`}>
           {" "}
           { emailSectionBody }
         </p>
         <div className="socials flex flex-row gap-2 md:justify-start justify-center my-[32px]">
-          <motion.div
-            className="mr-4"
-            whileHover={{
-              scale: 1.1
-            }}
-          >
-            <Link 
-              href={MY_GITHUB_PROFILE_URL}
-              target="_blank"
-            >
-              <Image 
-                loader={imageLoader}
-                src={GITHUB_LOGO_URL} 
-                alt="Github Icon" 
-                width={40}
-                height={40}
-              />
-            </Link>  
-          </motion.div>
-          <motion.div
-            whileHover={{
-              scale: 1.1
-            }}
-          >
-            <Link 
-              href={MY_LINKEDIN_PROFILE_URL} 
-              target="_blank"
-            >
-              <Image 
-                loader={imageLoader}
-                src={LINKEDIN_LOGO_URL} 
-                alt="Linkedin Icon" 
-                width={40}
-                height={40}
-              />
-            </Link>  
-          </motion.div>
+          {
+            socialLinks?.map((link) => (
+              <div className='mr-[20px]' key={link.id}>
+                  <SocialIcons 
+                    url={link.url} 
+                    icon={link.icon} 
+                  />
+              </div>
+            ))
+          }
         </div>
       </motion.div>
       <div>
@@ -134,7 +130,7 @@ const EmailSection = () => {
             <div className="mb-6">
               <label
                 htmlFor="email"
-                className="text-white block mb-2 text-sm font-medium"
+                className=" block mb-2 text-sm font-medium"
               >
                 { yourMail }
               </label>
@@ -143,14 +139,19 @@ const EmailSection = () => {
                 type="email"
                 id="email"
                 required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                className={`
+                  ${theme === "light" ? "bg-[#E3E4E8]" : "bg-[#18191E] text-gray-100"}  
+                  border border-[#33353F] placeholder-[#9CA2A9] 
+                  text-sm rounded-lg 
+                  block w-full p-2.5`
+                }
                 placeholder=""
               />
             </div>
             <div className="mb-6">
               <label
                 htmlFor="subject"
-                className="text-white block text-sm mb-2 font-medium"
+                className=" block text-sm mb-2 font-medium"
               >
                 { subject }
               </label>
@@ -159,33 +160,44 @@ const EmailSection = () => {
                 type="text"
                 id="subject"
                 required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                className={`
+                  ${theme === "light" ? "bg-[#E3E4E8]" : "bg-[#18191E] text-gray-100"}  
+                  border border-[#33353F] placeholder-[#9CA2A9] 
+                  text-sm rounded-lg 
+                  block w-full p-2.5`
+                }
                 placeholder=""
               />
             </div>
             <div className="mb-6">
               <label
                 htmlFor="message"
-                className="text-white block text-sm mb-2 font-medium"
+                className=" block text-sm mb-2 font-medium"
               >
                 { message }
               </label>
               <textarea
                 name="message"
                 id="message"
-                className="mb-2 bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                className={`
+                  ${theme === "light" ? "bg-[#E3E4E8]" : "bg-[#18191E] text-gray-100"}  
+                  border border-[#33353F] placeholder-[#9CA2A9] 
+                  text-sm rounded-lg 
+                  block w-full p-2.5`
+                }
                 placeholder=""
               />
             </div>
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-800 hover:--tw-shadow-color: #3730a3; text-white font-medium py-2.5 px-5 rounded-lg w-2/3 md:w-1/2 xl:w-1/3"
+              className="bg-blue-400 hover:bg-blue-600 hover:--tw-shadow-color: #3730a3; font-medium py-2.5 px-5 rounded-lg w-2/3 md:w-1/2 xl:w-1/3"
             >
               <motion.p 
                 whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.1 }
-              }} 
+                  scale: 1.05,
+                  transition: { duration: 0.1 }
+                }}
+                className="text-white"
               >
                 { sendMessage }
               </motion.p> 

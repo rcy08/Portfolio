@@ -2,7 +2,6 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BiSolidChevronsRight } from "react-icons/bi";
 
 import { easeOut, motion } from 'framer-motion';
 import { Tilt } from 'react-tilt';
@@ -21,8 +20,13 @@ import {
 import { MY_IMAGE_URL, MY_RESUME_URL } from '../constants/url';
 
 import PersonIcon from '@mui/icons-material/Person';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+
+import { useTheme } from '../context/ThemeContext';
 
 const AboutSection = () => {
+
+    const { theme } = useTheme();
 
     if(document.querySelector('#myImage')){
         document.querySelector('#myImage').addEventListener('contextmenu', (event) => {
@@ -35,7 +39,7 @@ const AboutSection = () => {
         className='text-white sm:mb-36' 
         id='about'
     >
-        <h2 className='text-4xl font-bold text-white mb-4 text-center'> 
+        <h2 className='text-4xl font-bold mb-4 text-center'> 
             <PersonIcon className='scale-[200%] mr-2 pb-[2px]' /> 
             { aboutMeHeader }
         </h2> 
@@ -91,7 +95,7 @@ const AboutSection = () => {
                 <br />
                 <br />
                 <motion.h2
-                    className='text-base font-medium text-white mb-4'
+                    className='text-base font-medium mb-4'
                     variants={{
                         hidden: {
                             y: -50,
@@ -140,11 +144,11 @@ const AboutSection = () => {
                             whileInView='visible'
                             viewport={{ amount: 0.25 }}
                         >
-                                <BiSolidChevronsRight className='mr-2' />
+                                <KeyboardDoubleArrowRightIcon className={`mr-2 ${theme === "light" ? "text-black" : "text-white"} `} />
                                 <Link 
                                     href={profile.url} 
                                     className='text-blue-500 hover:text-blue-700 mr-[7px]' target='_blank'> 
-                                    {profile.title}: 
+                                    {profile.title}:
                                 </Link>
                                 <p> {profile.description} </p>
                         </motion.div>
