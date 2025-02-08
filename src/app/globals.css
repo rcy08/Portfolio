@@ -4,7 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -26,7 +26,83 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+} */
+
+:root {
+  --foreground-rgb: 0, 0, 0; /* light mode text color */
+  --background-start-rgb: 210, 224, 237; /* light mode background color */
+  --background-end-rgb: 210, 224, 237; /* light mode background color */
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255; /* dark mode text color */
+    --background-start-rgb: 32, 32, 32; /* dark mode background color (#202020) */
+    --background-end-rgb: 32, 32, 32; /* dark mode background color (#202020) */
+  }
+}
+
+/* User-defined dark mode */
+[data-theme="dark"] {
+  --foreground-rgb: 255, 255, 255; /* dark mode text color */
+  --background-start-rgb: 32, 32, 32; /* dark mode background color (#202020) */
+  --background-end-rgb: 32, 32, 32; /* dark mode background color (#202020) */
+}
+
+/* User-defined light mode */
+[data-theme="light"] {
+  --foreground-rgb: 0, 0, 0; /* light mode text color */
+  --background-start-rgb: 210, 224, 237; /* light mode background color */
+  --background-end-rgb: 210, 224, 237; /* light mode background color */
+}
+
+body {
+  color: rgb(var(--foreground-rgb)); /* Apply text color dynamically */
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb)); /* Apply background color dynamically */
+}
+
+/* Example of applying text color to headings, paragraphs, etc. */
+
+nav {
+  background: rgb(var(--background-start-rgb)); /* Same background color for nav */
+  color: rgb(var(--foreground-rgb)); /* Ensure text inside <nav> matches the theme color */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: rgb(var(--foreground-rgb)); /* Dynamically change color based on theme */
+}
+
+p {
+  color: rgb(var(--foreground-rgb)); /* Dynamically change color based on theme */
+}
+
+span {
+  color: rgb(var(--foreground-rgb)); /* Dynamically change color based on theme */
+}
+
+a {
+  color: rgb(var(--foreground-rgb)); /* Apply theme color to links */
+}
+
+a:hover {
+  color: rgb(255, 255, 255); /* Change link color on hover */
+}
+
+/* Apply color to anchor tags only in light mode */
+[data-theme="light"] a {
+  color: rgb(0, 0, 255); /* Light mode link color (you can change this to any color you prefer) */
+}
+
+/* Optionally, change the color of anchor tags on hover in light mode */
+[data-theme="light"] a:hover {
+  color: rgb(0, 0, 255); /* Change to a color for hover effect (blue for example) */
+}
+
 
 .head{
   font-family: 'Alex Brush', cursive;
@@ -36,7 +112,7 @@ body {
   font-weight:bold;
 }
 
-::-moz-selection {
+/* ::-moz-selection {
   background: #5800B6;
 }
 ::-webkit-selection {
@@ -44,5 +120,37 @@ body {
 }
 ::selection {
   background: #5800B6;
+} */
+
+/* ---------------------  Scrollbar styles --------------------------- */
+
+/* Target the entire scrollbar */
+[data-theme="dark"]::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
 }
 
+/* Style the track (background) */
+::-webkit-scrollbar-track {
+  background-color: #454754; /* Light gray background */
+}
+
+/* Style the thumb (draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #676B7E; /* Default gray color */
+}
+
+/* Hover effect on the thumb */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #8F92A3; /* Darker gray when hovered */
+}
+
+/* Optional: Customize the scrollbar buttons (left/right or up/down arrows) */
+::-webkit-scrollbar-button {
+  background-color: #ccc;
+}
+
+/* Optional: Customize the corner where both scrollbars meet */
+::-webkit-scrollbar-corner {
+  background-color: #e1e1e1;
+}

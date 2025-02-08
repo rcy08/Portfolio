@@ -10,8 +10,25 @@ import { IoArrowDownCircle } from "react-icons/io5";
 
 import { easeOut, motion } from 'framer-motion';
 
-import { TiltOptions, socialLinks, imageLoader } from '../constants';
+import { TiltOptions, imageLoader } from '../constants';
 import { PROGRAMMER_GIF_URL } from '../constants/url';
+
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { MY_GITHUB_PROFILE_URL, MY_LINKEDIN_PROFILE_URL } from '../constants/url';
+
+const socialLinks = [
+    {
+      id: 1,
+      url: MY_GITHUB_PROFILE_URL,
+      icon: <GitHubIcon className='scale-[125%]' />
+    },
+    {
+      id: 2,
+      url: MY_LINKEDIN_PROFILE_URL,
+      icon: <LinkedInIcon className='scale-[125%]' />
+    },
+  ];
 
 const HeroSection = () => {
   return (
@@ -34,7 +51,7 @@ const HeroSection = () => {
                         transition: {
                             type: "spring",
                             duration: 1,
-                            delay: 0.25,
+                            delay: 0.5,
                             ease: easeOut
                         }
                     }
@@ -85,9 +102,9 @@ const HeroSection = () => {
                     <button className='px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white'> 
                         <motion.div
                             whileHover={{
-                                scale: 1.05
+                                scale: 1.1
                             }}
-                            className='flex justify-center items-center font-semibold hover:font-bold'> About Me 
+                            className='flex justify-center items-center font-semibold hover:font-bold'> About Me
                         <div> <IoArrowDownCircle className='ml-4 sm:ml-2 w-[90%] h-[75%]'/> </div> </motion.div> 
                     </button>    
                 </button>
@@ -96,20 +113,46 @@ const HeroSection = () => {
                     <span className='block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2'> Download CV </span>  
                 </button> */}
             </div>
-            <div className='mt-12 flex flex-row justify-center md:justify-start mb-16 sm:mb-0'>
+            <div className='mt-12 flex flex-row justify-start md:justify-start mb-16 sm:mb-0'>
                 {
-                    socialLinks.map((link) => (
-                        <div className='mr-[20px]' key={link.id} >
-                            <SocialIcons url={link.url} icon={link.path} />
+                    socialLinks?.map((link) => (
+                        <div className='mr-[20px]' key={link.id}>
+                            <SocialIcons 
+                                url={link.url} 
+                                icon={link.icon} 
+                            />
                         </div>
                     ))
                 }
             </div>
         </div>
-        <div className='mb-16 sm:mb-0'>
+        <motion.div 
+            className='mb-16 sm:mb-0'
+            variants={{
+                hidden: {
+                    x: 0, 
+                    y: 50, 
+                    opacity: 0 
+                },
+                visible: {
+                    x: 0, 
+                    y: 0, 
+                    opacity: 1,
+                    transition: {
+                        type: "spring",
+                        duration: 1,
+                        delay: 0.5,
+                        ease: easeOut
+                    }
+                }
+            }}
+            initial='hidden'
+            whileInView='visible'
+            viewport={{ amount: 0.25 }}
+        >
                 <Tilt
                     options={TiltOptions}
-                    className='rounded-full w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px] relative hover:cursor-pointer hover:shadow-lg hover:shadow-gray-600'
+                    className='rounded-full w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px] relative hover:shadow-lg hover:shadow-gray-600'
                 >
                     <Image
                         loader={imageLoader}
@@ -121,7 +164,7 @@ const HeroSection = () => {
                     />        
                 </Tilt>
                 
-        </div>
+        </motion.div>
         
     </section>
   )
