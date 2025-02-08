@@ -69,7 +69,7 @@ export default function Home() {
   const [subdomain, setSubdomain] = useState('');
 
   useEffect(() => {
-    if (typeof window !== undefined) {
+    if(typeof window !== 'undefined'){
       const currentUrl = new URL(window.location.href);
       if (currentUrl.hostname.includes('.')) {
         setSubdomain(currentUrl.hostname.split('.')[0]);
