@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from 'react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import { XMarkIcon } from '@heroicons/react/24/solid';
 import MenuOverlay from './MenuOverlay';
 import { navLinks, myName } from '../constants';
-import { color, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';

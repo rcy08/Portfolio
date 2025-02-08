@@ -9,7 +9,6 @@ import SkillsSection from './components/SkillsSection.jsx';
 import EducationSection from './components/EducationSection.jsx';
 import EmailSection from './components/EmailSection.jsx';
 import Footer from './components/Footer.jsx';
-import Forbidden from './components/Forbidden';
 
 import { easeInOut, motion } from 'framer-motion';
 import Loader from './components/Loader';

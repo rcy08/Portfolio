@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { MdEmail } from "react-icons/md";
 import { GoArrowRight } from "react-icons/go";
 import { FaLocationCrosshairs } from "react-icons/fa6";
@@ -9,7 +8,6 @@ import { FaLocationCrosshairs } from "react-icons/fa6";
 import { motion } from 'framer-motion';
 import { 
   quickLinks,  
-  imageLoader, 
   myName, 
   quickLinksHeader, 
   contact, 
